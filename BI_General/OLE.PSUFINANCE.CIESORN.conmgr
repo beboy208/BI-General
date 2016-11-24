@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OLE PSUFINANCE CIESORN"
+  DTS:DTSID="{64E4BF4F-BBA8-4511-8C10-5E8ABF8F8D41}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=PSUFINANCE;User ID=CIESORN;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="4o/LvCImpQ=="
+        p4:IV="GsZQOxIoimY=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">lcdXfH3qi7RlbfBHx7Hpjvro5ORvWTAJZx6bAjtGTXb9uwgG8+8tTlj6VzFwt1gKvdS9JbKX8IFzkRpHqTVzROwz+ZywvyXtEv1zpn1Ma5RCZ4/0e+DnJMXjIqrTbIfCogcRoS7alx/VIEsvezb/pDfKDEw4TxUA</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

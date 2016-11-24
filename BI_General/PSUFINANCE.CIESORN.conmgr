@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="PSUFINANCE.CIESORN"
+  DTS:DTSID="{40BD7570-6857-4745-862D-8F53F4A534DC}"
+  DTS:CreationName="ADO.NET:System.Data.OracleClient.OracleConnection, System.Data.OracleClient, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=PSUFINANCE;User ID=CIESORN;Persist Security Info=True;Unicode=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="0QiYH30G/Q=="
+        p4:IV="WE+s/YHOvSM=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">qZGJnmDzil7KVCrBHWPcJ8VtN/l1MtSHcIUJC/Ym9asAQ7bt+i6AMpuoqhw4erq/YLiLnmU/H1l9GnTaGpZVJltkyBqtKla4z2pmsfPwcc9+ySQzaZnWidsa6txWWHHySqsReRcLTa9McO/j+qqQGMmYCXKPwYsi</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

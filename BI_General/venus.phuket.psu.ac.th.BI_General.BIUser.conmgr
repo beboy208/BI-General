@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="venus.phuket.psu.ac.th.BI_General.BIUser"
+  DTS:DTSID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=venus.phuket.psu.ac.th;User ID=BIUser;Initial Catalog=BI_General;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="+MvK0AwrtQ=="
+        p4:IV="c04ns2Wn9Hk=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">NKOwdzC2tC5CJl9+76/F77ePD90RsecAuTLfPiTwVh0IsUMvHjJ7TsppHO+TB2QmxQzQgSGgDplHmnRKEI6gi+pL8xHLAfUE4XOXPlnIHdjdigoi3UzFv4p3vsbmvCfri5O10ZFqLA2gbuCk0OCua5r9JUn1SXj2jUQaA+witYI=</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

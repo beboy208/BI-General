@@ -1,0 +1,1957 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/8/2016 11:29:14 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NR-PC"
+  DTS:CreatorName="NR-PC\Nontapon"
+  DTS:DTSID="{220E22E4-3CAB-4536-AD56-F6D673FB9DF3}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ETL_D_PStaffProvinceWithCountry"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{C65F773F-7611-4E04-9CA1-F3D140504155}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Delete all in GD_PStaffProvince"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EA6A94D0-BFFE-4AF1-9B4C-4A11B28AA12B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete all in GD_PStaffProvince"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}"
+          SQLTask:SqlStatementSource="Delete from D_PStaffProvince" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Get Province and Country from Central"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5019EB2E-BF32-4957-B323-46B04BC202D3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Province and Country from Central"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Available Province_Country from P_Staff"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select distinct S.PROV_ID,
+case when length(CP.PROV_NAME_THAI) = 0 then CPRef.PROVINCE_NAME_TH else CP.PROV_NAME_THAI end  as  PROV_NAME_THAI ,
+case when length(CPRef.PROVINCE_NAME_EN) = 0 then CP.PROV_NAME_ENG else CPRef.PROVINCE_NAME_EN  end  as  PROV_NAME_ENG, 
+CP.REF_PROVINCE_ID, CPRef.Region_ID, 
+s.p_country, COUN.COUNTRY_NAME_THAI, COUN.COUNTRY_NAME_ENG
+from personel.p_staff s
+left join CENTRAL.C_PROVINCE cp on s.prov_id = cp.PROV_ID
+left join CENTRAL.REF_PROVINCE CPRef on cp.REF_PROVINCE_ID = CPRef.PROVINCE_ID
+left join CENTRAL.C_COUNTRY coun on S.P_COUNTRY = COUN.COUNTRY_ID</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Connections[IDbConnection]"
+                  connectionManagerID="{40BD7570-6857-4745-862D-8F53F4A534DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[PSUFINANCE.CIESORN]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[PROV_ID]"
+                      length="2"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]"
+                      name="PROV_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_NAME_THAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[PROV_NAME_THAI]"
+                      length="255"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_NAME_THAI]"
+                      name="PROV_NAME_THAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_NAME_ENG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[PROV_NAME_ENG]"
+                      length="255"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_NAME_ENG]"
+                      name="PROV_NAME_ENG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[REF_PROVINCE_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[REF_PROVINCE_ID]"
+                      length="10"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[REF_PROVINCE_ID]"
+                      name="REF_PROVINCE_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[REGION_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[REGION_ID]"
+                      length="2"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[REGION_ID]"
+                      name="REGION_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[P_COUNTRY]"
+                      length="20"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]"
+                      name="P_COUNTRY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[COUNTRY_NAME_THAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[COUNTRY_NAME_THAI]"
+                      length="50"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[COUNTRY_NAME_THAI]"
+                      name="COUNTRY_NAME_THAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[COUNTRY_NAME_ENG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[COUNTRY_NAME_ENG]"
+                      length="50"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[COUNTRY_NAME_ENG]"
+                      name="COUNTRY_NAME_ENG"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[PROV_ID]"
+                      dataType="wstr"
+                      length="2"
+                      name="PROV_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[PROV_NAME_THAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="PROV_NAME_THAI" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[PROV_NAME_ENG]"
+                      dataType="wstr"
+                      length="255"
+                      name="PROV_NAME_ENG" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[REF_PROVINCE_ID]"
+                      dataType="wstr"
+                      length="10"
+                      name="REF_PROVINCE_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[REGION_ID]"
+                      dataType="wstr"
+                      length="2"
+                      name="REGION_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[P_COUNTRY]"
+                      dataType="wstr"
+                      length="20"
+                      name="P_COUNTRY" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[COUNTRY_NAME_THAI]"
+                      dataType="wstr"
+                      length="50"
+                      name="COUNTRY_NAME_THAI" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].ExternalColumns[COUNTRY_NAME_ENG]"
+                      dataType="wstr"
+                      length="50"
+                      name="COUNTRY_NAME_ENG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[PROV_ID]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[PROV_ID]"
+                      name="PROV_ID" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[PROV_NAME_THAI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[PROV_NAME_THAI]"
+                      name="PROV_NAME_THAI" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[PROV_NAME_ENG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[PROV_NAME_ENG]"
+                      name="PROV_NAME_ENG" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[REF_PROVINCE_ID]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[REF_PROVINCE_ID]"
+                      name="REF_PROVINCE_ID" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[REGION_ID]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[REGION_ID]"
+                      name="REGION_ID" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[P_COUNTRY]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[P_COUNTRY]"
+                      name="P_COUNTRY" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[COUNTRY_NAME_THAI]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[COUNTRY_NAME_THAI]"
+                      name="COUNTRY_NAME_THAI" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[COUNTRY_NAME_ENG]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[COUNTRY_NAME_ENG]"
+                      name="COUNTRY_NAME_ENG" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID)"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID)"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Inputs[Derived Column Input].Columns[PROV_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PROV_ID"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Inputs[Derived Column Input].Columns[P_COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="P_COUNTRY"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Output].Columns[ProvinceID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="24"
+                      lineageId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Output].Columns[ProvinceID]"
+                      name="ProvinceID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"C" + #{Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]} + "P" + #{Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"C" + P_COUNTRY + "P" + PROV_ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get Province and Country from Central\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[D_PStaffProvince]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Get Province and Country from Central\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[venus.phuket.psu.ac.th.BI_General.BIUser]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegionEN]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RegionEN"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegionEN]"
+                      lineageId="Package\Get Province and Country from Central\Transform Region.Outputs[Output 0].Columns[RegionEN]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegionTH]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RegionTH"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegionTH]"
+                      lineageId="Package\Get Province and Country from Central\Transform Region.Outputs[Output 0].Columns[RegionTH]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PROV_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PROV_ID"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CentralProvID]"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[REF_PROVINCE_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="REF_PROVINCE_ID"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CentralRefProvID]"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[REF_PROVINCE_ID]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[COUNTRY_NAME_THAI]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="COUNTRY_NAME_THAI"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryNameTH]"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[COUNTRY_NAME_THAI]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[COUNTRY_NAME_ENG]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="COUNTRY_NAME_ENG"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryNameEN]"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[COUNTRY_NAME_ENG]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProvinceID]"
+                      cachedDataType="wstr"
+                      cachedLength="24"
+                      cachedName="ProvinceID"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SProvinceID]"
+                      lineageId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Output].Columns[ProvinceID]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[P_COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="P_COUNTRY"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CentralCountryID]"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PROV_NAME_THAI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PROV_NAME_THAI"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProvinceNameTH]"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_NAME_THAI]" />
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PROV_NAME_ENG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="PROV_NAME_ENG"
+                      externalMetadataColumnId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProvinceNameEN]"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_NAME_ENG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProvinceNameTH]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProvinceNameTH" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProvinceNameEN]"
+                      dataType="wstr"
+                      length="255"
+                      name="ProvinceNameEN" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegionTH]"
+                      dataType="wstr"
+                      length="50"
+                      name="RegionTH" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegionEN]"
+                      dataType="wstr"
+                      length="50"
+                      name="RegionEN" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SProvinceID]"
+                      dataType="wstr"
+                      length="10"
+                      name="SProvinceID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CentralProvID]"
+                      dataType="wstr"
+                      length="2"
+                      name="CentralProvID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CentralRefProvID]"
+                      dataType="wstr"
+                      length="8"
+                      name="CentralRefProvID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CentralCountryID]"
+                      dataType="wstr"
+                      length="3"
+                      name="CentralCountryID" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryNameTH]"
+                      dataType="wstr"
+                      length="50"
+                      name="CountryNameTH" />
+                    <externalMetadataColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CountryNameEN]"
+                      dataType="wstr"
+                      length="50"
+                      name="CountryNameEN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get Province and Country from Central\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Province and Country from Central\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Province and Country from Central\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Transform Null value of ProvinceID and CountryID"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Inputs[Derived Column Input].Columns[PROV_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="PROV_ID"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([ISNULL](#{Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]}) || [LEN](#{Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]}) &lt;= 0) ? "00" : #{Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[PROV_ID]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ISNULL(PROV_ID) || LEN(PROV_ID) &lt;= 0) ? "00" : PROV_ID</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Inputs[Derived Column Input].Columns[P_COUNTRY]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="P_COUNTRY"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">([ISNULL](#{Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]}) || [LEN](#{Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]}) &lt;= 0) ? "000" : #{Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[P_COUNTRY]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(ISNULL(P_COUNTRY) || LEN(P_COUNTRY) &lt;= 0) ? "000" : P_COUNTRY</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Get Province and Country from Central\Transform Region"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum.;Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;9"
+              description="Includes and runs custom script code. For example, apply a business rule that limits the range of valid values in an &quot;income&quot; column or add values in two columns and calculate the average of the sum."
+              name="Transform Region"
+              version="9">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Stores the source code of the component"
+                  isArray="true"
+                  name="SourceCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="30">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[ComponentWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services component wrapper
+*  This module defines the base class for your component
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+
+public class UserComponent: ScriptComponent
+{
+    public Connections Connections;
+    public Variables Variables;
+    public UserComponent()
+    {
+        Connections = new Connections(this);
+        Variables = new Variables(this);
+    }
+
+    public override void ProcessInput(int InputID, string InputName, PipelineBuffer Buffer, OutputNameMap OutputMap)
+    {
+
+        if (InputName.Equals(@"Input 0", StringComparison.Ordinal))
+        {
+            Input0_ProcessInput(new Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap));
+        }
+
+    }
+
+    public virtual void Input0_ProcessInput(Input0Buffer Buffer)
+    {
+        while (Buffer.NextRow())
+        {
+            Input0_ProcessInputRow(Buffer);
+        }
+    }
+
+    public virtual void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+    }
+
+}
+
+public class Connections
+{
+    ScriptComponent ParentComponent;
+
+    public Connections(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+
+public class Variables
+{
+    ScriptComponent ParentComponent;
+
+    public Variables(ScriptComponent Component)
+    {
+        ParentComponent = Component;
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.resx]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[main.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[#region Help:  Introduction to the Script Component
+/* The Script Component allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services data flow.
+ *
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script component. */
+#endregion
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+using Microsoft.SqlServer.Dts.Runtime.Wrapper;
+#endregion
+
+/// <summary>
+/// This is the class to which to add your code.  Do not change the name, attributes, or parent
+/// of this class.
+/// </summary>
+[Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute]
+public class ScriptMain : UserComponent
+{
+    #region Help:  Using Integration Services variables and parameters
+    /* To use a variable in this script, first ensure that the variable has been added to
+     * either the list contained in the ReadOnlyVariables property or the list contained in
+     * the ReadWriteVariables property of this script component, according to whether or not your
+     * code needs to write into the variable.  To do so, save this script, close this instance of
+     * Visual Studio, and update the ReadOnlyVariables and ReadWriteVariables properties in the
+     * Script Transformation Editor window.
+     * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+     *
+     * Example of reading from a variable or parameter:
+     *  DateTime startTime = Variables.MyStartTime;
+     *
+     * Example of writing to a variable:
+     *  Variables.myStringVariable = "new value";
+     */
+    #endregion
+
+    #region Help:  Using Integration Services Connnection Managers
+    /* Some types of connection managers can be used in this script component.  See the help topic
+     * "Working with Connection Managers Programatically" for details.
+     *
+     * To use a connection manager in this script, first ensure that the connection manager has
+     * been added to either the list of connection managers on the Connection Managers page of the
+     * script component editor.  To add the connection manager, save this script, close this instance of
+     * Visual Studio, and add the Connection Manager to the list.
+     *
+     * If the component needs to hold a connection open while processing rows, override the
+     * AcquireConnections and ReleaseConnections methods.
+     * 
+     * Example of using an ADO.Net connection manager to acquire a SqlConnection:
+     *  object rawConnection = Connections.SalesDB.AcquireConnection(transaction);
+     *  SqlConnection salesDBConn = (SqlConnection)rawConnection;
+     *
+     * Example of using a File connection manager to acquire a file path:
+     *  object rawConnection = Connections.Prices_zip.AcquireConnection(transaction);
+     *  string filePath = (string)rawConnection;
+     *
+     * Example of releasing a connection manager:
+     *  Connections.SalesDB.ReleaseConnection(rawConnection);
+     */
+    #endregion
+
+    #region Help:  Firing Integration Services Events
+    /* This script component can fire events.
+     *
+     * Example of firing an error event:
+     *  ComponentMetaData.FireError(10, "Process Values", "Bad value", "", 0, out cancel);
+     *
+     * Example of firing an information event:
+     *  ComponentMetaData.FireInformation(10, "Process Values", "Processing has started", "", 0, fireAgain);
+     *
+     * Example of firing a warning event:
+     *  ComponentMetaData.FireWarning(10, "Process Values", "No rows were received", "", 0);
+     */
+    #endregion
+
+    /// <summary>
+    /// This method is called once, before rows begin to be processed in the data flow.
+    ///
+    /// You can remove this method if you don't need to do anything here.
+    /// </summary>
+    public override void PreExecute()
+    {
+        base.PreExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called after all the rows have passed through this component.
+    ///
+    /// You can delete this method if you don't need to do anything here.
+    /// </summary>
+    public override void PostExecute()
+    {
+        base.PostExecute();
+        /*
+         * Add your code here
+         */
+    }
+
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="Row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer Row)
+    {
+        /*
+         * Add your code here
+         */
+
+        //Row.RegionTH = (Row.REGIONNAMETH_IsNull) ? "ไม่มีข้อมูล" : Row.REGIONNAMETH;
+
+        Row.RegionTH = (Row.REGIONID_IsNull) ? "ไม่มีข้อมูล" : ConvertShortTHDirectionToFull(Row.REGIONID);
+        Row.RegionEN = (Row.REGIONID_IsNull) ? "No Data" : ConvertShortENDirectionToFull(Row.REGIONID);
+
+    }
+
+    private string ConvertShortENDirectionToFull(string shortENDirection)
+    {
+        switch (shortENDirection.ToUpper())
+        {
+            case "N":
+                return "North";
+            case "NE":
+                return "Norteast";
+            case "E":
+                return "East";
+            case "SE":
+                return "Southeast";
+            case "S":
+                return "South";
+            case "SW":
+                return "Southwest";
+            case "W":
+                return "West";
+            case "NW":
+                return "Nortwest";
+            case "C":
+                return "Central";
+            default:
+                return shortENDirection;
+        }
+    }
+
+    private string ConvertShortTHDirectionToFull(string shortTHDirection)
+    {
+        switch (shortTHDirection.ToUpper())
+        {
+            case "N":
+                return "ภาคเหนือ";
+            case "NE":
+                return "ภาคตะวันออกเฉียงเหนือ";
+            case "E":
+                return "ภาคตะวันออก";
+            case "SE":
+                return "ภาคตะวันออกเฉียงใต้";
+            case "S":
+                return "ภาคใต้";
+            case "SW":
+                return "ภาคตะวันตกเฉียงใต้";
+            case "W":
+                return "ภาคตะวันตก";
+            case "NW":
+                return "ภาคตะวันตกเฉียงเหนือ";
+            case "C":
+                return "ภาคกลาง";
+            default:
+                return shortTHDirection;
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[BufferWrapper.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[/* THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+*  Microsoft SQL Server Integration Services buffer wrappers
+*  This module defines classes for accessing data flow buffers
+*  THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT! */
+
+
+
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Pipeline;
+using Microsoft.SqlServer.Dts.Pipeline.Wrapper;
+
+public class Input0Buffer: ScriptBuffer
+
+{
+    public Input0Buffer(PipelineBuffer Buffer, int[] BufferColumnIndexes, OutputNameMap OutputMap)
+        : base(Buffer, BufferColumnIndexes, OutputMap)
+    {
+    }
+
+    public String REGIONID
+    {
+        get
+        {
+            return Buffer.GetString(BufferColumnIndexes[0]);
+        }
+    }
+    public bool REGIONID_IsNull
+    {
+        get
+        {
+            return IsNull(0);
+        }
+    }
+
+    public String RegionTH
+    {
+        set
+        {
+            this[1] = value;
+        }
+    }
+    public bool RegionTH_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(1);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    public String RegionEN
+    {
+        set
+        {
+            this[2] = value;
+        }
+    }
+    public bool RegionEN_IsNull
+    {
+        set
+        {
+            if (value)
+            {
+                SetNull(2);
+            }
+            else
+            {
+                throw new InvalidOperationException("IsNull property cannot be set to False. Assign a value to the column instead.");
+            }
+        }
+    }
+
+    new public bool NextRow()
+    {
+        return base.NextRow();
+    }
+
+    new public bool EndOfRowset()
+    {
+        return base.EndOfRowset();
+    }
+
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_65e2dd152cb54478851383a8a842b181.Properties.Settings.get_Default():SC_65e2dd152cb54478851383a8a842b181.Properties.Sett" +
+    "ings")]
+
+namespace SC_65e2dd152cb54478851383a8a842b181.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_65e2dd152cb54478851383a8a842b181.csproj]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{c651a83f-f7a2-4f1b-9a99-21ee732b4122}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SC_65e2dd152cb54478851383a8a842b181</RootNamespace>
+    <AssemblyName>SC_65e2dd152cb54478851383a8a842b181</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.TxScript, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.PipelineHost, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Compile Include="main.cs" />
+    <Compile Include="BufferWrapper.cs" />
+    <Compile Include="ComponentWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- This section defines VSTA properties that describe the host-changable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="ScriptComponent" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoExeName="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" />
+        <Host Name="ScriptComponent" GeneratedNamespace="SC_65e2dd152cb54478851383a8a842b181" IconIndex="0"></Host>
+        <ProjectClient>
+          <HostIdentifier>SSIS_SC120</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Project]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:CodeName>SC_65e2dd152cb54478851383a8a842b181</msb:CodeName>
+		<msb:DisplayName>SC_65e2dd152cb54478851383a8a842b181</msb:DisplayName>
+		<msb:ProjectId>{05386A91-2D8A-409C-B776-735A41B9A3BC}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="SC_65e2dd152cb54478851383a8a842b181.csproj"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="BufferWrapper.cs"/>
+		<msb:File Include="main.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="ComponentWrapper.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\AssemblyInfo.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("SC_65e2dd152cb54478851383a8a842b181")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("SC_65e2dd152cb54478851383a8a842b181")]
+[assembly: AssemblyCopyright("Copyright @  2016")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]
+]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Settings.settings]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[Properties\Resources.Designer.cs]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_65e2dd152cb54478851383a8a842b181.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_65e2dd152cb54478851383a8a842b181.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="SC_65e2dd152cb54478851383a8a842b181.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace SC_65e2dd152cb54478851383a8a842b181.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SC_65e2dd152cb54478851383a8a842b181.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}
+]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Stores the binary representation of the component"
+                  isArray="true"
+                  name="BinaryCode"
+                  state="cdata">
+                  <arrayElements
+                    arrayElementCount="2">
+                    <arrayElement
+                      dataType="System.String"><![CDATA[SC_65e2dd152cb54478851383a8a842b181.dll]]></arrayElement>
+                    <arrayElement
+                      dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDALP2aFcAAAAAAAAAAOAAAiELAQsAABoAAAAIAAAAAAAAzjgA
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACAAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAHQ4AABXAAAAAEAAAAgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA1BgAAAAgAAAAGgAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAAgEAAAAQAAAAAYAAAAcAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAIgAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACw
+OAAAAAAAAEgAAAACAAUA+CQAAHwTAAABAAAAAAAAAEAkAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAH4CKA0AAAoCAnMUAAAGfQEAAAQCAnMVAAAGfQIAAAQqkgRy
+AQAAcBpvDgAACiwVAgUCAygPAAAKDgRzCwAABm8DAAAGKkorBwIDbwQAAAYDbxIAAAYt8SoGKh4C
+KBEAAAoqHgIoEgAACioAAAMwAwBDAAAAAAAAAAMDbw0AAAYtDgIDbwwAAAYoCQAABisFchEAAHBv
+DgAABgMDbw0AAAYtDgIDbwwAAAYoCAAABisFcikAAHBvEAAABioAEzAEAAUBAAABAAARA28TAAAK
+JQo59gAAAP4TfggAAAQteh8JcxUAAAolcjkAAHAWKBYAAAolcj0AAHAXKBYAAAolckMAAHAYKBYA
+AAolckcAAHAZKBYAAAolck0AAHAaKBYAAAolclEAAHAbKBYAAAolclcAAHAcKBYAAAolclsAAHAd
+KBYAAAolcmEAAHAeKBYAAAr+E4AIAAAE/hN+CAAABAYSASgXAAAKLGIHRQkAAAACAAAACAAAAA4A
+AAAUAAAAGgAAACAAAAAmAAAALAAAADIAAAArNnJlAABwKnJxAABwKnKDAABwKnKNAABwKnKhAABw
+KnKtAABwKnLBAABwKnLLAABwKnLdAABwKgMqAAAAEzAEAAUBAAABAAARA28TAAAKJQo59gAAAP4T
+fgkAAAQteh8JcxUAAAolcjkAAHAWKBYAAAolcj0AAHAXKBYAAAolckMAAHAYKBYAAAolckcAAHAZ
+KBYAAAolck0AAHAaKBYAAAolclEAAHAbKBYAAAolclcAAHAcKBYAAAolclsAAHAdKBYAAAolcmEA
+AHAeKBYAAAr+E4AJAAAE/hN+CQAABAYSASgXAAAKLGIHRQkAAAACAAAACAAAAA4AAAAUAAAAGgAA
+ACAAAAAmAAAALAAAADIAAAArNnLtAABwKnL/AABwKnIrAQBwKnJDAQBwKnJrAQBwKnJ5AQBwKnKf
+AQBwKnK1AQBwKnLfAQBwKgMqHgIoAQAABioqAgMEBSgYAAAKKlICexkAAAoCexoAAAoWlG8bAAAK
+KiICFigcAAAKKiYCFwMoHQAACipaAywIAhcoHgAACipy7wEAcHMfAAAKeiYCGAMoHQAACipaAywI
+AhgoHgAACipy7wEAcHMfAAAKeh4CKCAAAAoqHgIoIQAACio6AigiAAAKAgN9AwAABCo6AigiAAAK
+AgN9BAAABCoeAigiAAAKKgAAEzACAC0AAAACAAARfgUAAAQtIHKMAgBw0AcAAAIoJAAACm8lAAAK
+cyYAAAoKBoAFAAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqGn4HAAAEKi5zGwAABoAHAAAEKh4CKCgA
+AAoqALQAAADOyu++AQAAAJEAAABsU3lzdGVtLlJlc291cmNlcy5SZXNvdXJjZVJlYWRlciwgbXNj
+b3JsaWIsIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1i
+NzdhNWM1NjE5MzRlMDg5I1N5c3RlbS5SZXNvdXJjZXMuUnVudGltZVJlc291cmNlU2V0AgAAAAAA
+AAAAAAAAUEFEUEFEULQAAABCU0pCAQABAAAAAAAMAAAAdjQuMC4zMDMxOQAAAAAFAGwAAAAYBgAA
+I34AAIQGAAAgCAAAI1N0cmluZ3MAAAAApA4AAAADAAAjVVMApBEAABAAAAAjR1VJRAAAALQRAADI
+AQAAI0Jsb2IAAAAAAAAAAgAAAVcVogkJAQAAAPolMwAWAAABAAAAIAAAAAkAAAAJAAAAHAAAABMA
+AAAoAAAAEAAAAAIAAAADAAAACQAAAAoAAAABAAAAAQAAAAQAAAABAAAAAAAKAAEAAAAAAAYA7gDN
+AAYA/gDNAAoAGwEUAQ4ANwEiARIAdgHNAAYAhQHNAAoAAQPwAgoAMgMdAwoALQQTBAoAWARGBAoA
+bwRGBAoAjARGBAoAqwRGBAoAxARGBAoA3QRGBAoA+ARGBAoAEwVGBAoALAVGBAoAZQVFBQoAhQVF
+BQoAxwUUAQoAzgUUAQYA9wXNAAoAawZFBQoAoQaGBgoACAcUAQoANQciBwoAUgcUAQoAVwcUAQoA
+ewdGBA4ApweRBw4AwAeRBwAAAAABAAAAAAABAAEAAQAQADIAAAAFAAEAAQABABAAQAAAAAgAAwAF
+AAEAEABLAAAACQADAAsAAQAQAFgAAAANAAMAFAABABAAZAAAAA0ABAAVAAAAEABuAHgADQAFABYA
+AAEQAKcAeAARAAcAGgAAAAAAJgYAAA0ACAAdAAYAWAATAAYAZAAXAAEA4AJYAAEA4AJYABEAEQNi
+ABEAPgNmABEAggOEABMArgapABMA0gapAFAgAAAAAIYYTwEbAAEAcCAAAAAAxgCTAR8AAQCVIAAA
+AADGAaABKQAFAKggAAAAAMYBtAEpAAYAqiAAAAAAxgDLARsABwCyIAAAAADGANYBGwAHALwgAAAA
+AMYAtAEpAAcADCEAAAAAgQDiAS8ACAAgIgAAAACBAAACLwAJADEjAAAAAIYYTwEbAAoAOSMAAAAA
+hhhPATQACgBEIwAAAACGCB4CPgANAFkjAAAAAIYIKwJCAA0AYiMAAAAAhgg/AkYADQBsIwAAAACG
+CEwCSwAOAIMjAAAAAIYIYAJGAA8AjSMAAAAAhghtAksAEACkIwAAAACGAIECQgARAKwjAAAAAIYA
+iQJCABEAtCMAAAAAhhhPAVwAEQDDIwAAAACGGE8BXAASANIjAAAAAIMYTwEbABMA3CMAAAAAkwhO
+A2oAEwAVJAAAAACTCGIDbwATABwkAAAAAJMIbgN0ABMAJCQAAAAAlgiSA4gAFAA3JAAAAACGGE8B
+GwAUACskAAAAAJEY1QcOARQAAAABAKYDAAACAK4DAAADALgDAAAEAL8DAAABALgDAAABAMkDAAAB
+AMkDAAABAM0DAAABAN4DAAABALgDAAACAO8DAAADAL8DAAABAAMEAAABAAMEAAABAAMEAAABAAME
+AAABAAkEAAABAAkEAAABAAMESQBPAUYAUQBPAUYAWQBPAUYAYQBPAUYAaQBPAUYAcQBPAUYAeQBP
+AUYAgQBPAUYAiQBPAUYAkQBPAUYAmQBPAZIAoQBPARsACQBPARsAqQDfBZcACQDmBZ4AuQBPARsA
+CQDLARsACQDWARsAqQAeBj4AwQBPARsADABPAZIADADCBrgADADGBsAAEQBPATQAEQC4A84AEQDv
+A9IAKQDmBtYAEQDwBtsAEQD3BuAAEQAAB5IA0QBPAUYAEQCBAkIAEQCJAkIAGQBPARsA2QBPARsA
+4QBpB+YA4QCEB+0AOQBPAfIA+QBPAf4AIQBPARsALgATAFoBLgAbAIMBLgBbAKABLgAjAIMBLgBD
+AIMBLgALABIBLgBjAKkBLgArAIMBLgAzAFoBLgA7AIkBYwCDAKQA4QCjAKQA4wAbAaQA6QA7AQUB
+CQE7AQUBIwGjAKQAyQD5AAQAAQAHAAcACAAJAAAAlQJQAAAAngJUAAAArgJQAAAAtwJUAAAAxwJQ
+AAAA0AJUAAAAAQN6AAAAegN/AAAAngONAAIADAADAAIADQAFAAEADgAHAAEADwAJAAEAEAALAAEA
+EQANAAIAFwAPAAIAGAARAAEAGQARAAIAGgATALEABIAAAAEAAACAF9FqAAAAAAAAowUAAAwAAAAA
+AAAAAAAAAAEAsAAAAAAABAAAAAAAAAAAAAAACgALAQAAAAAEAAAAAAAAAAAAAAAKABQBAAAAAAwA
+AAAAAAAAAAAAAAEAVQEAAAAAAAAAAAEAAADcBwAAAAAAPE1vZHVsZT4AU0NfNjVlMmRkMTUyY2I1
+NDQ3ODg1MTM4M2E4YTg0MmIxODEuZGxsAFVzZXJDb21wb25lbnQAU2NyaXB0TWFpbgBJbnB1dDBC
+dWZmZXIAQ29ubmVjdGlvbnMAVmFyaWFibGVzAFJlc291cmNlcwBTQ182NWUyZGQxNTJjYjU0NDc4
+ODUxMzgzYThhODQyYjE4MS5Qcm9wZXJ0aWVzAFNldHRpbmdzAE1pY3Jvc29mdC5TcWxTZXJ2ZXIu
+VHhTY3JpcHQATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUAU2NyaXB0Q29tcG9uZW50
+AFNjcmlwdEJ1ZmZlcgBtc2NvcmxpYgBTeXN0ZW0AT2JqZWN0AFN5c3RlbS5Db25maWd1cmF0aW9u
+AEFwcGxpY2F0aW9uU2V0dGluZ3NCYXNlAC5jdG9yAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxp
+bmVIb3N0AFBpcGVsaW5lQnVmZmVyAE91dHB1dE5hbWVNYXAAUHJvY2Vzc0lucHV0AElucHV0MF9Q
+cm9jZXNzSW5wdXQASW5wdXQwX1Byb2Nlc3NJbnB1dFJvdwBQcmVFeGVjdXRlAFBvc3RFeGVjdXRl
+AENvbnZlcnRTaG9ydEVORGlyZWN0aW9uVG9GdWxsAENvbnZlcnRTaG9ydFRIRGlyZWN0aW9uVG9G
+dWxsAGdldF9SRUdJT05JRABnZXRfUkVHSU9OSURfSXNOdWxsAHNldF9SZWdpb25USABzZXRfUmVn
+aW9uVEhfSXNOdWxsAHNldF9SZWdpb25FTgBzZXRfUmVnaW9uRU5fSXNOdWxsAE5leHRSb3cARW5k
+T2ZSb3dzZXQAUkVHSU9OSUQAUkVHSU9OSURfSXNOdWxsAFJlZ2lvblRIAFJlZ2lvblRIX0lzTnVs
+bABSZWdpb25FTgBSZWdpb25FTl9Jc051bGwAUGFyZW50Q29tcG9uZW50AFN5c3RlbS5SZXNvdXJj
+ZXMAUmVzb3VyY2VNYW5hZ2VyAHJlc291cmNlTWFuAFN5c3RlbS5HbG9iYWxpemF0aW9uAEN1bHR1
+cmVJbmZvAHJlc291cmNlQ3VsdHVyZQBnZXRfUmVzb3VyY2VNYW5hZ2VyAGdldF9DdWx0dXJlAHNl
+dF9DdWx0dXJlAEN1bHR1cmUAZGVmYXVsdEluc3RhbmNlAGdldF9EZWZhdWx0AERlZmF1bHQASW5w
+dXRJRABJbnB1dE5hbWUAQnVmZmVyAE91dHB1dE1hcABSb3cAc2hvcnRFTkRpcmVjdGlvbgBzaG9y
+dFRIRGlyZWN0aW9uAEJ1ZmZlckNvbHVtbkluZGV4ZXMAdmFsdWUAQ29tcG9uZW50AFN5c3RlbS5S
+dW50aW1lLlZlcnNpb25pbmcAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRlAFN5c3RlbS5SZWZsZWN0
+aW9uAEFzc2VtYmx5VGl0bGVBdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBB
+c3NlbWJseUNvbmZpZ3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlDb21wYW55QXR0cmlidXRlAEFz
+c2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNvcHlyaWdodEF0dHJpYnV0ZQBBc3NlbWJs
+eVRyYWRlbWFya0F0dHJpYnV0ZQBBc3NlbWJseUN1bHR1cmVBdHRyaWJ1dGUAQXNzZW1ibHlWZXJz
+aW9uQXR0cmlidXRlAFN5c3RlbS5SdW50aW1lLkNvbXBpbGVyU2VydmljZXMAQ29tcGlsYXRpb25S
+ZWxheGF0aW9uc0F0dHJpYnV0ZQBSdW50aW1lQ29tcGF0aWJpbGl0eUF0dHJpYnV0ZQBTQ182NWUy
+ZGQxNTJjYjU0NDc4ODUxMzgzYThhODQyYjE4MQBTdHJpbmcAU3RyaW5nQ29tcGFyaXNvbgBFcXVh
+bHMAR2V0Q29sdW1uSW5kZXhlcwBTU0lTU2NyaXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0
+ZQBUb1VwcGVyADxQcml2YXRlSW1wbGVtZW50YXRpb25EZXRhaWxzPntFREM4QjYzRi1EMkI5LTQ3
+RUYtOEI0My04MkM0OUZCNjc3NzZ9AENvbXBpbGVyR2VuZXJhdGVkQXR0cmlidXRlAFN5c3RlbS5D
+b2xsZWN0aW9ucy5HZW5lcmljAERpY3Rpb25hcnlgMgAkJG1ldGhvZDB4NjAwMDAwOC0xAEFkZABU
+cnlHZXRWYWx1ZQAkJG1ldGhvZDB4NjAwMDAwOS0xAEdldFN0cmluZwBJc051bGwAc2V0X0l0ZW0A
+U2V0TnVsbABJbnZhbGlkT3BlcmF0aW9uRXhjZXB0aW9uAFN5c3RlbS5EaWFnbm9zdGljcwBEZWJ1
+Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAFR5cGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZy
+b21IYW5kbGUAQXNzZW1ibHkAZ2V0X0Fzc2VtYmx5AFN5c3RlbS5Db21wb25lbnRNb2RlbABFZGl0
+b3JCcm93c2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlU3RhdGUALmNjdG9yAFNDXzY1ZTJk
+ZDE1MmNiNTQ0Nzg4NTEzODNhOGE4NDJiMTgxLlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNl
+cwAAAA9JAG4AcAB1AHQAIAAwAAAXRA4hDkgOIQ41DgIOSQ4tDiEOOQ4lDgEPTgBvACAARABhAHQA
+YQAAA04AAAVOAEUAAANFAAAFUwBFAAADUwAABVMAVwAAA1cAAAVOAFcAAANDAAALTgBvAHIAdABo
+AAARTgBvAHIAdABlAGEAcwB0AAAJRQBhAHMAdAAAE1MAbwB1AHQAaABlAGEAcwB0AAALUwBvAHUA
+dABoAAATUwBvAHUAdABoAHcAZQBzAHQAAAlXAGUAcwB0AAARTgBvAHIAdAB3AGUAcwB0AAAPQwBl
+AG4AdAByAGEAbAAAESAOMg4EDkAOKw4ZDjcOLQ4BKyAOMg4EDhUOMA4nDjEOGQ4tDi0OAQ5ADgkO
+NQ4iDgcOQA4rDhkONw4tDgEXIA4yDgQOFQ4wDicOMQ4ZDi0OLQ4BDgEnIA4yDgQOFQ4wDicOMQ4Z
+Di0OLQ4BDkAOCQ41DiIOBw5DDhUOSQ4BDSAOMg4EDkMOFQ5JDgElIA4yDgQOFQ4wDicOMQ4ZDhUO
+AQ5ADgkONQ4iDgcOQw4VDkkOARUgDjIOBA4VDjAOJw4xDhkOFQ4BDgEpIA4yDgQOFQ4wDicOMQ4Z
+DhUOAQ5ADgkONQ4iDgcOQA4rDhkONw4tDgEPIA4yDgQOAQ4lDjIOBw4BgJtJAHMATgB1AGwAbAAg
+AHAAcgBvAHAAZQByAHQAeQAgAGMAYQBuAG4AbwB0ACAAYgBlACAAcwBlAHQAIAB0AG8AIABGAGEA
+bABzAGUALgAgAEEAcwBzAGkAZwBuACAAYQAgAHYAYQBsAHUAZQAgAHQAbwAgAHQAaABlACAAYwBv
+AGwAdQBtAG4AIABpAG4AcwB0AGUAYQBkAC4AAHFTAEMAXwA2ADUAZQAyAGQAZAAxADUAMgBjAGIA
+NQA0ADQANwA4ADgANQAxADMAOAAzAGEAOABhADgANAAyAGIAMQA4ADEALgBQAHIAbwBwAGUAcgB0
+AGkAZQBzAC4AUgBlAHMAbwB1AHIAYwBlAHMAAAAAP7bI7bnS70eLQ4LEn7Z3dgAIiYRdzYCAzJEI
+t3pcVhk04IkDBhIUAwYSGAMgAAEJIAQBCA4SFRIZBSABARIQBCABDg4JIAMBEhUdCBIZAyAADgMg
+AAIEIAEBDgQgAQECAygADgMoAAIDBhIFBSABARIFAwYSHQMGEiEEAAASHQQAABIhBQABARIhBAgA
+Eh0ECAASIQMGEiAEAAASIAQIABIgBCABAQgGIAICDhFZBSABHQgIBAEAAAAHBhUSZQIOCAYVEmUC
+DggHIAIBEwATAQggAgITABATAQQHAg4IAwYSFQMGHQgEIAEOCAQgAQIIBSACAQgcBgABEnERdQQg
+ABJ5BiACAQ4SeQQHARIdBiABARGAgQgBAAIAAAAAAAMAAAFHAQAaLk5FVEZyYW1ld29yayxWZXJz
+aW9uPXY0LjABAFQOFEZyYW1ld29ya0Rpc3BsYXlOYW1lEC5ORVQgRnJhbWV3b3JrIDQoAQAjU0Nf
+NjVlMmRkMTUyY2I1NDQ3ODg1MTM4M2E4YTg0MmIxODEAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAg
+MjAxNgAACAEACAAAAAAAHgEAAQBUAhZXcmFwTm9uRXhjZXB0aW9uVGhyb3dzAZw4AAAAAAAAAAAA
+AL44AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwOAAAAAAAAAAAAAAAAAAAAAAAAAAAX0NvckRs
+bE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AQAQAAAAGAAAgAAAAAAAAAAAAAAAAAAAAQABAAAAMAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAASAAA
+AFhAAACwAwAAAAAAAAAAAACwAzQAAABWAFMAXwBWAEUAUgBTAEkATwBOAF8ASQBOAEYATwAAAAAA
+vQTv/gAAAQAAAAEA0WqAFwAAAQDRaoAXPwAAAAAAAAAEAAAAAgAAAAAAAAAAAAAAAAAAAEQAAAAB
+AFYAYQByAEYAaQBsAGUASQBuAGYAbwAAAAAAJAAEAAAAVAByAGEAbgBzAGwAYQB0AGkAbwBuAAAA
+AAAAALAEEAMAAAEAUwB0AHIAaQBuAGcARgBpAGwAZQBJAG4AZgBvAAAA7AIAAAEAMAAwADAAMAAw
+ADQAYgAwAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAQwBfADYA
+NQBlADIAZABkADEANQAyAGMAYgA1ADQANAA3ADgAOAA1ADEAMwA4ADMAYQA4AGEAOAA0ADIAYgAx
+ADgAMQAAAEAADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgA2ADAAMQA2AC4A
+MgA3ADMANAA1AAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAQwBfADYANQBl
+ADIAZABkADEANQAyAGMAYgA1ADQANAA3ADgAOAA1ADEAMwA4ADMAYQA4AGEAOAA0ADIAYgAxADgA
+MQAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQBy
+AGkAZwBoAHQAIABAACAAIAAyADAAMQA2AAAAeAAoAAEATwByAGkAZwBpAG4AYQBsAEYAaQBsAGUA
+bgBhAG0AZQAAAFMAQwBfADYANQBlADIAZABkADEANQAyAGMAYgA1ADQANAA3ADgAOAA1ADEAMwA4
+ADMAYQA4AGEAOAA0ADIAYgAxADgAMQAuAGQAbABsAAAAaAAkAAEAUAByAG8AZAB1AGMAdABOAGEA
+bQBlAAAAAABTAEMAXwA2ADUAZQAyAGQAZAAxADUAMgBjAGIANQA0ADQANwA4ADgANQAxADMAOAAz
+AGEAOABhADgANAAyAGIAMQA4ADEAAABEAA8AAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4A
+AAAxAC4AMAAuADYAMAAxADYALgAyADcAMwA0ADUAAAAAAEgADwABAEEAcwBzAGUAbQBiAGwAeQAg
+AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADYAMAAxADYALgAyADcAMwA0ADUAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAMAAAA0DgAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
+                  </arrayElements>
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                  name="VSTAProjectName"
+                  typeConverter="NOTBROWSABLE">SC_65e2dd152cb54478851383a8a842b181</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the programming language used by the script."
+                  name="ScriptLanguage"
+                  typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">CSharp</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read-only variables."
+                  name="ReadOnlyVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a comma-separated list of read/write variables."
+                  name="ReadWriteVariables"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                <property
+                  dataType="System.String"
+                  description="List of breakpoints present on the script."
+                  isArray="true"
+                  name="BreakpointCollection"
+                  typeConverter="NOTBROWSABLE">
+                  <arrayElements
+                    arrayElementCount="0" />
+                </property>
+                <property
+                  dataType="System.String"
+                  description="Checksum to match component metedata against compiled codes."
+                  name="MetadataChecksum"
+                  typeConverter="NOTBROWSABLE">6aaee424c5cfc10309bf2d2d4ddedc61</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Get Province and Country from Central\Transform Region.Inputs[Input 0]"
+                  hasSideEffects="true"
+                  name="Input 0">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Get Province and Country from Central\Transform Region.Inputs[Input 0].Columns[REGION_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="REGION_ID"
+                      lineageId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output].Columns[REGION_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Get Province and Country from Central\Transform Region.Outputs[Output 0]"
+                  name="Output 0"
+                  synchronousInputId="Package\Get Province and Country from Central\Transform Region.Inputs[Input 0]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\Transform Region.Outputs[Output 0].Columns[RegionTH]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Get Province and Country from Central\Transform Region.Outputs[Output 0].Columns[RegionTH]"
+                      name="RegionTH" />
+                    <outputColumn
+                      refId="Package\Get Province and Country from Central\Transform Region.Outputs[Output 0].Columns[RegionEN]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Get Province and Country from Central\Transform Region.Outputs[Output 0].Columns[RegionEN]"
+                      name="RegionEN" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Get Province and Country from Central.Paths[ADO NET Source Output]"
+              endId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Inputs[Derived Column Input]"
+              name="ADO NET Source Output"
+              startId="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Get Province and Country from Central.Paths[Derived Column Output]"
+              endId="Package\Get Province and Country from Central\Transform Region.Inputs[Input 0]"
+              name="Derived Column Output"
+              startId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Get Province and Country from Central.Paths[Derived Column Output1]"
+              endId="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID).Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Get Province and Country from Central.Paths[Output 0]"
+              endId="Package\Get Province and Country from Central\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Output 0"
+              startId="Package\Get Province and Country from Central\Transform Region.Outputs[Output 0]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3DED116D-D92B-411C-8D53-5368B4D8A2D2}"
+      DTS:From="Package\Delete all in GD_PStaffProvince"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Get Province and Country from Central" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Delete all in GD_PStaffProvince"
+          TopLeft="98,48" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\Get Province and Country from Central"
+          TopLeft="82,140" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="211.75,90">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="เนื่องจาก ฐานข้อมูล Central ไม่มีความสัมพันธ์กัน ระหว่าง&#xA;Province และ Country (อาจหาไม่เจอ)&#xA;&#xA;จึงใช้ข้อมูลที่มีการอ้างถึงในตาราง p_staff ที่มีการใส่ข้อมูลทั้ง provinceID และ countryID&#xA;มาเป็นข้อมูลตั้งต้น แล้วจึงผูกกับตารางที่จัดเก็บชื่อของ Province และ Country อีกครั้งหนึ่ง&#xA;&#xA;ยังไม่ได้ตรวจสอบข้อมูลในส่วนของ นักศึกษา"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="432,136"
+          Id="c7d18ed3-351a-4e96-a90c-f5e859c811e0"
+          TopLeft="381,47" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Get Province and Country from Central">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="376,42"
+          Id="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID)"
+          TopLeft="398,323" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Get Province and Country from Central\Transform Region"
+          TopLeft="503,405" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Get Province and Country from Central\OLE DB Destination"
+          TopLeft="503,489" />
+        <NodeLayout
+          Size="316,42"
+          Id="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff"
+          TopLeft="420,140" />
+        <EdgeLayout
+          Id="Package\Get Province and Country from Central.Paths[Output 0]"
+          TopLeft="586.5,447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get Province and Country from Central.Paths[Derived Column Output]"
+          TopLeft="585.25,365">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="316,42"
+          Id="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID"
+          TopLeft="424,232" />
+        <EdgeLayout
+          Id="Package\Get Province and Country from Central.Paths[Derived Column Output1]"
+          TopLeft="584,274">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get Province and Country from Central.Paths[ADO NET Source Output]"
+          TopLeft="580,182">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get Province and Country from Central\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

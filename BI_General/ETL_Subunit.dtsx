@@ -1,0 +1,542 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/5/2016 11:30:54 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NR-PC"
+  DTS:CreatorName="NR-PC\Nontapon"
+  DTS:DTSID="{FDB4E815-D4E9-479F-BE58-26527C3BF9A1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="ETL_Subunit"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{8EFBAEA7-06A6-4583-B809-D8EB0520DB25}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0F68C2F8-1EFA-47BD-AD06-1B86932B203A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Import from Central_Subunit with ESORN"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Import from Central_Subunit with ESORN"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"CENTRAL"."C_SUBUNIT"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Connections[IDbConnection]"
+                  connectionManagerID="{40BD7570-6857-4745-862D-8F53F4A534DC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[PSUFINANCE.CIESORN]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_ID]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_ID]"
+                      name="SUBUNIT_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_NAME_THAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_NAME_THAI]"
+                      length="70"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_NAME_THAI]"
+                      name="SUBUNIT_NAME_THAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_NAME_ENG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_NAME_ENG]"
+                      length="70"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_NAME_ENG]"
+                      name="SUBUNIT_NAME_ENG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[UNIT_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[UNIT_ID]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[UNIT_ID]"
+                      name="UNIT_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_DESC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_DESC]"
+                      length="60"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_DESC]"
+                      name="SUBUNIT_DESC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_TEL_FAX]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_TEL_FAX]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_TEL_FAX]"
+                      name="SUBUNIT_TEL_FAX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[OLD_SUBUNIT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[OLD_SUBUNIT]"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[OLD_SUBUNIT]"
+                      name="OLD_SUBUNIT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_ID]"
+                      dataType="wstr"
+                      length="3"
+                      name="SUBUNIT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_NAME_THAI]"
+                      dataType="wstr"
+                      length="70"
+                      name="SUBUNIT_NAME_THAI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_NAME_ENG]"
+                      dataType="wstr"
+                      length="70"
+                      name="SUBUNIT_NAME_ENG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[UNIT_ID]"
+                      dataType="wstr"
+                      length="3"
+                      name="UNIT_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_DESC]"
+                      dataType="wstr"
+                      length="60"
+                      name="SUBUNIT_DESC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[SUBUNIT_TEL_FAX]"
+                      dataType="wstr"
+                      length="50"
+                      name="SUBUNIT_TEL_FAX" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].ExternalColumns[OLD_SUBUNIT]"
+                      dataType="wstr"
+                      length="3"
+                      name="OLD_SUBUNIT" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_ID]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_ID]"
+                      name="SUBUNIT_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_NAME_THAI]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_NAME_THAI]"
+                      name="SUBUNIT_NAME_THAI" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_NAME_ENG]"
+                      dataType="wstr"
+                      length="70"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_NAME_ENG]"
+                      name="SUBUNIT_NAME_ENG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[UNIT_ID]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[UNIT_ID]"
+                      name="UNIT_ID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_DESC]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_DESC]"
+                      name="SUBUNIT_DESC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_TEL_FAX]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[SUBUNIT_TEL_FAX]"
+                      name="SUBUNIT_TEL_FAX" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[OLD_SUBUNIT]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[OLD_SUBUNIT]"
+                      name="OLD_SUBUNIT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB D_Subunit"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB D_Subunit"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[D_SubUnit]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB D_Subunit.Connections[OleDbConnection]"
+                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[venus.phuket.psu.ac.th.BI_General.BIUser]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].Columns[SUBUNIT_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="SUBUNIT_ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].ExternalColumns[SubUnitID]"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].Columns[SUBUNIT_NAME_THAI]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="SUBUNIT_NAME_THAI"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].ExternalColumns[SubUnitNameTH]"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_NAME_THAI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].Columns[SUBUNIT_NAME_ENG]"
+                      cachedDataType="wstr"
+                      cachedLength="70"
+                      cachedName="SUBUNIT_NAME_ENG"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].ExternalColumns[SubUnitNameEN]"
+                      lineageId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output].Columns[SUBUNIT_NAME_ENG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].ExternalColumns[SubUnitID]"
+                      dataType="wstr"
+                      length="50"
+                      name="SubUnitID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].ExternalColumns[SubUnitNameTH]"
+                      dataType="wstr"
+                      length="100"
+                      name="SubUnitNameTH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input].ExternalColumns[SubUnitNameEN]"
+                      dataType="wstr"
+                      length="100"
+                      name="SubUnitNameEN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB D_Subunit.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB D_Subunit.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB D_Subunit.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB D_Subunit.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB D_Subunit.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[ADO NET Source Output]"
+              endId="Package\Data Flow Task\OLE DB D_Subunit.Inputs[OLE DB Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Data Flow Task\Import from Central_Subunit with ESORN.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete all in D_Subunit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8CA39250-B075-4F82-B328-060C119CC3EB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete all in D_Subunit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}"
+          SQLTask:SqlStatementSource="Delete from D_Subunit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD736490-D0BC-4465-85D4-C367D1BD639B}"
+      DTS:From="Package\Delete all in D_Subunit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Delete all in D_Subunit"
+          TopLeft="167,50" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="179,125" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="257.5,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33"
+              Start="0,0"
+              End="0,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="274,42"
+          Id="Package\Data Flow Task\Import from Central_Subunit with ESORN"
+          TopLeft="235,49" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Data Flow Task\OLE DB D_Subunit"
+          TopLeft="291,145" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ADO NET Source Output]"
+          TopLeft="373.25,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Import from Central_Subunit with ESORN">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB D_Subunit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

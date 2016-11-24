@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/28/2016 11:40:42 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NR-PC"
+  DTS:CreatorName="NR-PC\Nontapon"
+  DTS:DTSID="{938CC1D3-080D-4371-9C63-C88F8E109EBC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package4"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionGUID="{85373727-022B-480F-A816-B61DC0512C0D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

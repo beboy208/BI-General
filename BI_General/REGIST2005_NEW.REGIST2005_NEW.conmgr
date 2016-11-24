@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="REGIST2005_NEW.REGIST2005_NEW"
+  DTS:DTSID="{C0415C44-F42A-4FB0-A2CB-8AAC333A1C79}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=REGIST2005_NEW;User ID=tnitiwat;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"
+        p4:Salt="Awd3VYzQJQ=="
+        p4:IV="2eBFkJjmL74=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">0m7LSD5lmwEx0CyQ25nKPPRgJPBw3ZTMseYZDTv16zj+dRy86tdP1EQRkYu4uSzhwspyN+pLKd2HGKcw5f/Hj7ASzbFah5T5GIL8ShlYPPcZPVdNNd0hsIwLqcdzseZmTamZ1pydHAqPc9FuWsRB/bH6Xi6AaKlE</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
