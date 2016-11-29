@@ -7,13 +7,13 @@
   DTS:CreatorName="NR-PC\Nontapon"
   DTS:DTSID="{F3FEC476-F304-44EC-91B7-49CD288B75C6}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL_D_EntranceMethodV2"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="88"
-  DTS:VersionGUID="{F978699F-69A9-4923-AB2D-B4A1281BBC40}">
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{D097C0DC-5141-45A0-B7AF-9F50FD275333}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -244,7 +244,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -811,7 +811,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1046,7 +1046,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        ENT_METHOD_ID, ENT_METHOD_DESC, 'SIS' AS DataSource
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        ENT_METHOD_ID, ENT_METHOD_DESC, 'SIS' AS DataSource
 FROM            REGIST2005_NEW.ENT_METHOD ent</property>
                 <property
                   dataType="System.String"
@@ -1806,7 +1806,7 @@ FROM            REGIST2005_NEW.ENT_METHOD ent</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -3587,6 +3587,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <AnnotationLayout
+          Text="Entrance Method ในฐาน Regist2005_New ไม่ได้ระบุปีการศึกษาที่ใช้&#xA;เริ่มดึงข้อมูลปีการศึกษาครั้งแรกปีการศึกษา 2558"
+          ParentId="Package\Get ToDay Record from GD_Date"
+          FontInfo="{assembly:Null}"
+          Size="356,60"
+          Id="2b6bae08-b433-4a77-8735-52b5a15d5378"
+          TopLeft="507,120" />
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
