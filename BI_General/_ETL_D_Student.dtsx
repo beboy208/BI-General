@@ -7,13 +7,13 @@
   DTS:CreatorName="NR-PC\Nontapon"
   DTS:DTSID="{0A63943D-6CEB-4B64-8C33-DBA04508F00F}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="_ETL_D_Student"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="44"
-  DTS:VersionGUID="{8454CFC6-2AC3-4924-BB6A-1940C833CF34}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{40256B93-C295-4915-9FE6-30A64388E6BA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -916,6 +916,18 @@ from Central.C_Province</property>
                       cachedLength="20"
                       cachedName="EntranceMethodID"
                       lineageId="Package\GD_Student\Sort by AdmitYear.Outputs[Sort Output].Columns[EntranceMethodID]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Sort by AdmitYear.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Sort by AdmitYear.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1577,6 +1589,34 @@ from Central.C_Province</property>
                           name="InputColumnID">#{Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input].Columns[EntranceMethodID]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1865,6 +1905,18 @@ from Central.C_Province</property>
                       cachedLength="20"
                       cachedName="EntranceMethodID"
                       lineageId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[EntranceMethodID]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -2497,6 +2549,34 @@ from Central.C_Province</property>
                           name="InputColumnID">#{Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input].Columns[EntranceMethodID]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -2780,6 +2860,18 @@ from Central.C_Province</property>
                       cachedDataType="i4"
                       cachedName="Gender"
                       lineageId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[Gender]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -3406,6 +3498,34 @@ from Central.C_Province</property>
                           name="InputColumnID">#{Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Inputs[Merge Join Right Input].Columns[EntranceMethodID]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -3700,6 +3820,18 @@ from Central.C_Province</property>
                       cachedLength="20"
                       cachedName="EntranceMethodID"
                       lineageId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[EntranceMethodID]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -4346,6 +4478,34 @@ from Central.C_Province</property>
                           name="InputColumnID">#{Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input].Columns[EntranceMethodID]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -4605,6 +4765,18 @@ from Central.C_Province</property>
                       cachedLength="70"
                       cachedName="STATUS_DESC_ENG"
                       lineageId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output].Columns[STATUS_DESC_ENG]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Merge Join.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]" />
+                    <inputColumn
+                      refId="Package\GD_Student\Merge Join.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -5162,6 +5334,34 @@ from Central.C_Province</property>
                           name="InputColumnID">#{Package\GD_Student\Merge Join.Inputs[Merge Join Left Input].Columns[STATUS_DESC_ENG]}</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Merge Join.Inputs[Merge Join Left Input].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\GD_Student\Merge Join.Inputs[Merge Join Left Input].Columns[STUDY_TYPE_NAME]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -5192,7 +5392,7 @@ from Central.C_Province</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -5385,6 +5585,46 @@ from Central.C_Province</property>
                       lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[D_CoursePlanID]"
                       name="D_CoursePlanID"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[StudyLevelNameTH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].ExternalColumns[StudyLevelNameTH]"
+                      length="50"
+                      lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[StudyLevelNameTH]"
+                      name="StudyLevelNameTH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[StudyTypeNameEN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].ExternalColumns[StudyTypeNameEN]"
+                      length="50"
+                      lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[StudyTypeNameEN]"
+                      name="StudyTypeNameEN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[StudyTypeNameTH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].ExternalColumns[StudyTypeNameTH]"
+                      length="50"
+                      lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[StudyTypeNameTH]"
+                      name="StudyTypeNameTH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[StudyLevelNameEN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].ExternalColumns[StudyLevelNameEN]"
+                      length="50"
+                      lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].Columns[StudyLevelNameEN]"
+                      name="StudyLevelNameEN"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5465,6 +5705,26 @@ from Central.C_Province</property>
                       dataType="wstr"
                       length="12"
                       name="D_CoursePlanID" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].ExternalColumns[StudyLevelNameTH]"
+                      dataType="wstr"
+                      length="50"
+                      name="StudyLevelNameTH" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].ExternalColumns[StudyTypeNameEN]"
+                      dataType="wstr"
+                      length="50"
+                      name="StudyTypeNameEN" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].ExternalColumns[StudyTypeNameTH]"
+                      dataType="wstr"
+                      length="50"
+                      name="StudyTypeNameTH" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output].ExternalColumns[StudyLevelNameEN]"
+                      dataType="wstr"
+                      length="50"
+                      name="StudyLevelNameEN" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5566,6 +5826,30 @@ from Central.C_Province</property>
                       lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[D_CoursePlanID]"
                       name="D_CoursePlanID" />
                     <outputColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[StudyLevelNameTH]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[StudyLevelNameTH]"
+                      name="StudyLevelNameTH" />
+                    <outputColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[StudyTypeNameEN]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[StudyTypeNameEN]"
+                      name="StudyTypeNameEN" />
+                    <outputColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[StudyTypeNameTH]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[StudyTypeNameTH]"
+                      name="StudyTypeNameTH" />
+                    <outputColumn
+                      refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[StudyLevelNameEN]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[StudyLevelNameEN]"
+                      name="StudyLevelNameEN" />
+                    <outputColumn
                       refId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
@@ -5607,7 +5891,7 @@ from Central.C_Province</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -5842,7 +6126,7 @@ from Central.C_Province</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -6143,7 +6427,7 @@ from Central.C_Province</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -6295,6 +6579,20 @@ from Central.C_Province</property>
                       cachedName="PSUMajorID"
                       externalMetadataColumnId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].ExternalColumns[D_MajorID]"
                       lineageId="Package\GD_Student\Transform MajorID to &quot;PSUM&quot;+MajorID.Outputs[Derived Column Output].Columns[PSUMajorID]" />
+                    <inputColumn
+                      refId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      externalMetadataColumnId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].ExternalColumns[StudyLevelNameTH]"
+                      lineageId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]" />
+                    <inputColumn
+                      refId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      externalMetadataColumnId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].ExternalColumns[StudyTypeNameTH]"
+                      lineageId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -6375,6 +6673,26 @@ from Central.C_Province</property>
                       dataType="wstr"
                       length="12"
                       name="D_CoursePlanID" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].ExternalColumns[StudyLevelNameTH]"
+                      dataType="wstr"
+                      length="80"
+                      name="StudyLevelNameTH" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].ExternalColumns[StudyTypeNameEN]"
+                      dataType="wstr"
+                      length="80"
+                      name="StudyTypeNameEN" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].ExternalColumns[StudyTypeNameTH]"
+                      dataType="wstr"
+                      length="80"
+                      name="StudyTypeNameTH" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].ExternalColumns[StudyLevelNameEN]"
+                      dataType="wstr"
+                      length="80"
+                      name="StudyLevelNameEN" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6428,7 +6746,7 @@ from Central.C_Province</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -7176,11 +7494,14 @@ from Central.C_Province</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT s.*, t.TITLE_NAME_ENG, t.TITLE_NAME_THAI,
-            STATUS.STATUS_DESC_THAI, STATUS.STATUS_DESC_ENG, STATUS.STILL_STUDENT
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT s.*, t.TITLE_NAME_ENG, t.TITLE_NAME_THAI,
+            STATUS.STATUS_DESC_THAI, STATUS.STATUS_DESC_ENG, STATUS.STILL_STUDENT,
+            lv.Study_Level_Name, t.study_type_Name
 FROM regist2005_new.student s 
 left join regist2005_new.title t on s.title_id = t.title_id
-left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATUS</property>
+left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATUS
+left join regist2005_NEW.study_level lv on lv.study_level_id = s.study_level_id
+left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -7623,6 +7944,26 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                       lineageId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STATUS_DESC_ENG]"
                       name="STATUS_DESC_ENG"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].ExternalColumns[STUDY_LEVEL_NAME]"
+                      length="80"
+                      lineageId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].ExternalColumns[STUDY_TYPE_NAME]"
+                      length="80"
+                      lineageId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -7828,6 +8169,16 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                       dataType="wstr"
                       length="70"
                       name="STATUS_DESC_ENG" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].ExternalColumns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      name="STUDY_LEVEL_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].ExternalColumns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      name="STUDY_TYPE_NAME" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -8078,6 +8429,18 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                       length="40"
                       lineageId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Error Output].Columns[TITLE_NAME_THAI]"
                       name="TITLE_NAME_THAI" />
+                    <outputColumn
+                      refId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Error Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Error Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME" />
+                    <outputColumn
+                      refId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Error Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Error Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME" />
                     <outputColumn
                       refId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -9906,6 +10269,40 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by AdmitYear.Inputs[Sort Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by AdmitYear.Inputs[Sort Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -10529,6 +10926,34 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[EntranceMethodID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by AdmitYear.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by AdmitYear.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by AdmitYear.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by AdmitYear.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -11273,6 +11698,40 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by BirthProvince.Inputs[Sort Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by BirthProvince.Inputs[Sort Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -11868,6 +12327,34 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[EntranceMethodID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -12594,6 +13081,40 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Inputs[Sort Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Inputs[Sort Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -13176,6 +13697,34 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\GD_Student\FullName TH EN, Gender.Outputs[Derived Column Output].Columns[Gender]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -14138,6 +14687,40 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by PROV_NAME_TH.Inputs[Sort Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by PROV_NAME_TH.Inputs[Sort Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -14747,6 +15330,34 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[EntranceMethodID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[STUDY_TYPE_NAME]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -15541,6 +16152,40 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           name="NewSortKeyPosition">0</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by STUDENT_ID.Inputs[Sort Input].Columns[STUDY_LEVEL_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_LEVEL_NAME"
+                      lineageId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STUDY_LEVEL_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GD_Student\Sort by STUDENT_ID.Inputs[Sort Input].Columns[STUDY_TYPE_NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="STUDY_TYPE_NAME"
+                      lineageId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STUDY_TYPE_NAME]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -16121,6 +16766,34 @@ left join REGIST2005_NEW.STUDY_STATUS status on STATUS.STATUS_ID = S.STUDY_STATU
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STATUS_DESC_ENG]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output].Columns[STUDY_LEVEL_NAME]"
+                      name="STUDY_LEVEL_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STUDY_LEVEL_NAME]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output].Columns[STUDY_TYPE_NAME]"
+                      name="STUDY_TYPE_NAME">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output].Columns[STUDY_TYPE_NAME]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -17315,29 +17988,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Student\Conditional Split.Outputs[NewRow]" />
             <path
               refId="Package\GD_Student.Paths[OLE DB Source Output4]"
-              endId="Package\GD_Student\Sort by AcademicYearTH.Inputs[Sort Input]"
+              endId="Package\GD_Student\Sort by STUDENT_ID.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\GD_Student\OLE VD_AcademicYear.Outputs[OLE DB Source Output]" />
+              startId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[OLE DB Source Output2]"
-              endId="Package\GD_Student\Sort by ProvinceNameTH.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\GD_Student\OLE D_Province.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\GD_Student.Paths[OLE DB Source Output3]"
               endId="Package\GD_Student\Entrance Datasource.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
               startId="Package\GD_Student\OLE D_EntranceMethod.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\GD_Student.Paths[OLE DB Source Output]"
+              refId="Package\GD_Student.Paths[OLE DB Source Output3]"
               endId="Package\GD_Student\Sort by StudentID.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\GD_Student.Paths[OLE DB Source Output1]"
-              endId="Package\GD_Student\Sort by STUDENT_ID.Inputs[Sort Input]"
+              refId="Package\GD_Student.Paths[OLE DB Source Output]"
+              endId="Package\GD_Student\Sort by AcademicYearTH.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output]" />
+              startId="Package\GD_Student\OLE VD_AcademicYear.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\GD_Student.Paths[OLE DB Source Output1]"
+              endId="Package\GD_Student\Sort by ProvinceNameTH.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\GD_Student\OLE D_Province.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[Output 0]"
               endId="Package\GD_Student\Sort by PROV_NAME_TH.Inputs[Sort Input]"
@@ -17350,49 +18023,49 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Student\Entrance Datasource.Outputs[SIS]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output8]"
+              endId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort OraginEntMethodID Then AdmitYearTH.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output]"
               endId="Package\GD_Student\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by StudentID.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Student.Paths[Sort Output]"
+              refId="Package\GD_Student.Paths[Sort Output1]"
               endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by Prov_ID.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Student.Paths[Sort Output1]"
+              refId="Package\GD_Student.Paths[Sort Output2]"
               endId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Student.Paths[Sort Output2]"
+              refId="Package\GD_Student.Paths[Sort Output3]"
               endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Student.Paths[Sort Output3]"
+              refId="Package\GD_Student.Paths[Sort Output4]"
               endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by AdmitYear.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Student.Paths[Sort Output4]"
+              refId="Package\GD_Student.Paths[Sort Output5]"
               endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by AcademicYearTH.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Student.Paths[Sort Output5]"
+              refId="Package\GD_Student.Paths[Sort Output6]"
               endId="Package\GD_Student\Merge Join.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Student.Paths[Sort Output6]"
+              refId="Package\GD_Student.Paths[Sort Output7]"
               endId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by ProvinceNameTH.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output7]"
-              endId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort OraginEntMethodID Then AdmitYearTH.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output9]"
               endId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH.Inputs[Merge Join Left Input]"
@@ -17629,40 +18302,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[Sort Output8]"
-          TopLeft="676,157">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-105.666666666667,64"
-              Start="0,0"
-              End="-105.666666666667,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.9331306990881" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.9331306990881"
-                    Point2="0,37.9331306990881"
-                    Point3="-4,37.9331306990881" />
-                  <mssgle:LineSegment
-                    End="-101.666666666667,37.9331306990881" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-101.666666666667,37.9331306990881"
-                    Point2="-105.666666666667,37.9331306990881"
-                    Point3="-105.666666666667,41.9331306990881" />
-                  <mssgle:LineSegment
-                    End="-105.666666666667,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output7]"
           TopLeft="243.5,529">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17696,7 +18335,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output6]"
+          Id="Package\GD_Student.Paths[Sort Output7]"
           TopLeft="710,1049.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17730,7 +18369,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output5]"
+          Id="Package\GD_Student.Paths[Sort Output6]"
           TopLeft="434.5,154">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17764,7 +18403,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output4]"
+          Id="Package\GD_Student.Paths[Sort Output5]"
           TopLeft="218,1229.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17798,7 +18437,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output3]"
+          Id="Package\GD_Student.Paths[Sort Output4]"
           TopLeft="576.5,1217.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17832,7 +18471,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output2]"
+          Id="Package\GD_Student.Paths[Sort Output3]"
           TopLeft="581.5,777.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17866,7 +18505,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output1]"
+          Id="Package\GD_Student.Paths[Sort Output2]"
           TopLeft="451,1050.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17900,7 +18539,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output]"
+          Id="Package\GD_Student.Paths[Sort Output1]"
           TopLeft="330.5,796.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -17925,6 +18564,40 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     Point3="75.6666666666666,35.587646076794" />
                   <mssgle:LineSegment
                     End="75.6666666666666,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Sort Output]"
+          TopLeft="676,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-105.666666666667,64"
+              Start="0,0"
+              End="-105.666666666667,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9331306990881" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.9331306990881"
+                    Point2="0,37.9331306990881"
+                    Point3="-4,37.9331306990881" />
+                  <mssgle:LineSegment
+                    End="-101.666666666667,37.9331306990881" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-101.666666666667,37.9331306990881"
+                    Point2="-105.666666666667,37.9331306990881"
+                    Point3="-105.666666666667,41.9331306990881" />
+                  <mssgle:LineSegment
+                    End="-105.666666666667,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -17981,72 +18654,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[OLE DB Source Output4]"
-          TopLeft="218,1161.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[OLE DB Source Output3]"
-          TopLeft="236.5,358">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,42"
-              Start="0,0"
-              End="0,34.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[OLE DB Source Output2]"
-          TopLeft="711.75,961.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46"
-              Start="0,0"
-              End="0,38.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[OLE DB Source Output1]"
           TopLeft="433.25,68">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18068,7 +18675,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[OLE DB Source Output]"
+          Id="Package\GD_Student.Paths[OLE DB Source Output3]"
           TopLeft="676,72">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -18081,6 +18688,72 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[OLE DB Source Output2]"
+          TopLeft="236.5,358">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[OLE DB Source Output1]"
+          TopLeft="711.75,961.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[OLE DB Source Output]"
+          TopLeft="218,1161.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
