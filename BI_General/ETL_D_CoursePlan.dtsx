@@ -7,13 +7,13 @@
   DTS:CreatorName="NR-PC\Nontapon"
   DTS:DTSID="{1D5A236E-E451-42FE-BB12-484EB13DCA0A}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL_D_CoursePlan"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{95097F35-8B19-4E0C-AC62-0A0E3F35502B}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{647DE86F-2A46-400C-BF9D-AE4384E7532C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1663,7 +1663,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2123,7 +2123,7 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select CoursePlanID, D_DateID_EducationYear
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select CoursePlanID, D_DateID_EducationYear
 from D_PSU_CoursePlan</property>
                 <property
                   dataType="System.String"
@@ -2254,7 +2254,7 @@ from D_PSU_CoursePlan</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select cp.course_plan_ID, COF.course_offer_id, cof.course_id, cof.edu_year, cof.course_offer_detail, CP.REGULAR_YEAR, CP.EXPAND_YEAR, 
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select cp.course_plan_ID, COF.course_offer_id, cof.course_id, cof.edu_year, cof.course_offer_detail, CP.REGULAR_YEAR, CP.EXPAND_YEAR, 
 CT.COURSE_TYPE_ID, CT.Course_type_Name ,
 stype.*, splan.*, slv.*, ccat.*, d.*, m.*,
 SUBO.OWNER_ID, SUBO.OWNER_NAME
@@ -3058,7 +3058,7 @@ order by course_plan_id</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -6438,6 +6438,10 @@ order by course_plan_id</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="247,42"
+          Id="Package\Import Regist2005New Course\Transform MajorID to PSU_MajorID"
+          TopLeft="467,628" />
+        <NodeLayout
           Size="130,42"
           Id="Package\Import Regist2005New Course\Merge Join"
           TopLeft="389,280" />
@@ -6450,25 +6454,29 @@ order by course_plan_id</property>
           Id="Package\Import Regist2005New Course\OLE DB GD_CoursePlan"
           TopLeft="534,61" />
         <NodeLayout
-          Size="136,42"
-          Id="Package\Import Regist2005New Course\OLE D_Date"
-          TopLeft="665,368" />
-        <NodeLayout
-          Size="311,42"
-          Id="Package\Import Regist2005New Course\Sort Regist2005New CoursePlan by CoursePlanID"
-          TopLeft="88,170" />
+          Size="171,42"
+          Id="Package\Import Regist2005New Course\OLE DB Destination"
+          TopLeft="506,714" />
         <NodeLayout
           Size="139,42"
           Id="Package\Import Regist2005New Course\Merge Join 1"
           TopLeft="522,546" />
         <NodeLayout
-          Size="161,42"
-          Id="Package\Import Regist2005New Course\Sort by EDU Year"
-          TopLeft="380,448" />
+          Size="311,42"
+          Id="Package\Import Regist2005New Course\Sort Regist2005New CoursePlan by CoursePlanID"
+          TopLeft="88,170" />
         <NodeLayout
           Size="195,42"
           Id="Package\Import Regist2005New Course\Sort by AcademicYearTH"
           TopLeft="643,444" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\Import Regist2005New Course\Sort by EDU Year"
+          TopLeft="380,448" />
+        <NodeLayout
+          Size="136,42"
+          Id="Package\Import Regist2005New Course\OLE D_Date"
+          TopLeft="665,368" />
         <NodeLayout
           Size="250,42"
           Id="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan"
@@ -6477,10 +6485,40 @@ order by course_plan_id</property>
           Size="155,42"
           Id="Package\Import Regist2005New Course\Conditional Split"
           TopLeft="380,362" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Import Regist2005New Course\OLE DB Destination"
-          TopLeft="506,714" />
+        <EdgeLayout
+          Id="Package\Import Regist2005New Course.Paths[Sort Output3]"
+          TopLeft="740.5,486">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-127.166666666667,60"
+              Start="0,0"
+              End="-127.166666666667,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5903271692745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5903271692745"
+                    Point2="0,35.5903271692745"
+                    Point3="-4,35.5903271692745" />
+                  <mssgle:LineSegment
+                    End="-123.166666666667,35.5903271692745" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-123.166666666667,35.5903271692745"
+                    Point2="-127.166666666667,35.5903271692745"
+                    Point3="-127.166666666667,39.5903271692745" />
+                  <mssgle:LineSegment
+                    End="-127.166666666667,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Import Regist2005New Course.Paths[Sort Output2]"
           TopLeft="460.5,490">
@@ -6674,8 +6712,8 @@ order by course_plan_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import Regist2005New Course.Paths[Merge Join Output]"
-          TopLeft="455.75,322">
+          Id="Package\Import Regist2005New Course.Paths[Merge Join Output1]"
+          TopLeft="591,588">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6696,46 +6734,8 @@ order by course_plan_id</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Import Regist2005New Course.Paths[Sort Output3]"
-          TopLeft="740.5,486">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-127.166666666667,60"
-              Start="0,0"
-              End="-127.166666666667,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5903271692745" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.5903271692745"
-                    Point2="0,35.5903271692745"
-                    Point3="-4,35.5903271692745" />
-                  <mssgle:LineSegment
-                    End="-123.166666666667,35.5903271692745" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-123.166666666667,35.5903271692745"
-                    Point2="-127.166666666667,35.5903271692745"
-                    Point3="-127.166666666667,39.5903271692745" />
-                  <mssgle:LineSegment
-                    End="-127.166666666667,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="247,42"
-          Id="Package\Import Regist2005New Course\Transform MajorID to PSU_MajorID"
-          TopLeft="467,628" />
-        <EdgeLayout
-          Id="Package\Import Regist2005New Course.Paths[Merge Join Output1]"
-          TopLeft="591,588">
+          Id="Package\Import Regist2005New Course.Paths[Merge Join Output]"
+          TopLeft="455.75,322">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

@@ -12,8 +12,8 @@
   DTS:ObjectName="ETL_D_Student_V2"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="64"
-  DTS:VersionGUID="{F2971108-1E7E-4C00-B183-31E13B8A84ED}">
+  DTS:VersionBuild="73"
+  DTS:VersionGUID="{05B701FE-79BF-4957-8F7F-7A7FC6AAEACD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -526,7 +526,7 @@ from Central.C_Province</property>
                       dataType="wstr"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\FullName TH EN, Gender.Outputs[Derived Column Output].Columns[FullNameEN]"
                       name="FullNameEN"
                       truncationRowDisposition="FailComponent">
@@ -535,13 +535,13 @@ from Central.C_Province</property>
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[TITLE_NAME_ENG]} + #{Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUD_NAME_ENG]} + " " + #{Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUD_SNAME_ENG]}</property>
+                          name="Expression">#{Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[TITLE_NAME_ENG]} + " " + #{Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUD_NAME_ENG]} + " " + #{Package\GD_Student\Merge Join.Outputs[Merge Join Output].Columns[STUD_SNAME_ENG]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">TITLE_NAME_ENG + STUD_NAME_ENG + " " + STUD_SNAME_ENG</property>
+                          name="FriendlyExpression">TITLE_NAME_ENG + " " + STUD_NAME_ENG + " " + STUD_SNAME_ENG</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -863,7 +863,7 @@ from Central.C_Province</property>
                     <inputColumn
                       refId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Sort by Admit_Year.Outputs[Sort Output].Columns[FullNameEN]" />
                     <inputColumn
@@ -1470,7 +1470,7 @@ from Central.C_Province</property>
                     <outputColumn
                       refId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -1824,7 +1824,7 @@ from Central.C_Province</property>
                     <inputColumn
                       refId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[FullNameEN]" />
                     <inputColumn
@@ -2436,7 +2436,7 @@ from Central.C_Province</property>
                     <outputColumn
                       refId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -2805,7 +2805,7 @@ from Central.C_Province</property>
                     <inputColumn
                       refId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH, Student Admit from 2558.Inputs[Merge Join Left Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[FullNameEN]" />
                     <inputColumn
@@ -3413,7 +3413,7 @@ from Central.C_Province</property>
                     <outputColumn
                       refId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH, Student Admit from 2558.Outputs[Merge Join Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH, Student Admit from 2558.Outputs[Merge Join Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -3754,7 +3754,7 @@ from Central.C_Province</property>
                     <inputColumn
                       refId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558.Inputs[Merge Join Left Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[FullNameEN]" />
                     <inputColumn
@@ -4361,7 +4361,7 @@ from Central.C_Province</property>
                     <outputColumn
                       refId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558.Outputs[Merge Join Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558.Outputs[Merge Join Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -4707,7 +4707,7 @@ from Central.C_Province</property>
                     <inputColumn
                       refId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[FullNameEN]" />
                     <inputColumn
@@ -5318,7 +5318,7 @@ from Central.C_Province</property>
                     <outputColumn
                       refId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -7551,7 +7551,7 @@ from Central.C_Province</property>
                     <inputColumn
                       refId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       externalMetadataColumnId="Package\GD_Student\OLE D_Student.Inputs[OLE DB Destination Input].ExternalColumns[StudentFullNameEN]"
                       lineageId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output].Columns[FullNameEN]" />
@@ -11225,7 +11225,7 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
                     <inputColumn
                       refId="Package\GD_Student\Sort by Admit_Year.Inputs[Sort Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Union All.Outputs[Union All Output 1].Columns[FullNameEN]">
                       <properties>
@@ -11865,7 +11865,7 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
                     <outputColumn
                       refId="Package\GD_Student\Sort by Admit_Year.Outputs[Sort Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Sort by Admit_Year.Outputs[Sort Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -12625,7 +12625,7 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
                     <inputColumn
                       refId="Package\GD_Student\Sort by BirthProvince.Inputs[Sort Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output].Columns[FullNameEN]">
                       <properties>
@@ -13282,7 +13282,7 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
                     <outputColumn
                       refId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -14056,7 +14056,7 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
                     <inputColumn
                       refId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Inputs[Sort Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\FullName TH EN, Gender.Outputs[Derived Column Output].Columns[FullNameEN]">
                       <properties>
@@ -14680,7 +14680,7 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
                     <outputColumn
                       refId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -15628,7 +15628,7 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
                     <inputColumn
                       refId="Package\GD_Student\Sort by PROV_NAME_TH.Inputs[Sort Input].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output].Columns[FullNameEN]">
                       <properties>
@@ -16301,7 +16301,7 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
                     <outputColumn
                       refId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output].Columns[FullNameEN]"
                       name="FullNameEN">
                       <properties>
@@ -19785,7 +19785,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     <inputColumn
                       refId="Package\GD_Student\Union All.Inputs[Union All Input 1].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH, Student Admit from 2558.Outputs[Merge Join Output].Columns[FullNameEN]">
                       <properties>
@@ -20408,7 +20408,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     <inputColumn
                       refId="Package\GD_Student\Union All.Inputs[Union All Input 2].Columns[FullNameEN]"
                       cachedDataType="wstr"
-                      cachedLength="91"
+                      cachedLength="92"
                       cachedName="FullNameEN"
                       lineageId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558.Outputs[Merge Join Output].Columns[FullNameEN]">
                       <properties>
@@ -20726,7 +20726,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     <outputColumn
                       refId="Package\GD_Student\Union All.Outputs[Union All Output 1].Columns[FullNameEN]"
                       dataType="wstr"
-                      length="91"
+                      length="92"
                       lineageId="Package\GD_Student\Union All.Outputs[Union All Output 1].Columns[FullNameEN]"
                       name="FullNameEN" />
                     <outputColumn
@@ -20796,64 +20796,64 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Student\EntranceMethod before 2558 (0000).Outputs[EntranceMethod before 2558]" />
             <path
               refId="Package\GD_Student.Paths[Merge Join Output]"
-              endId="Package\GD_Student\Union All.Inputs[Union All Input 2]"
-              name="Merge Join Output"
-              startId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Merge Join Output1]"
-              endId="Package\GD_Student\Union All.Inputs[Union All Input 1]"
-              name="Merge Join Output"
-              startId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH, Student Admit from 2558.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Merge Join Output2]"
               endId="Package\GD_Student\Transform incorrect Prov_Name_TH.Inputs[Input 0]"
               name="Merge Join Output"
               startId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Outputs[Merge Join Output]" />
             <path
-              refId="Package\GD_Student.Paths[Merge Join Output3]"
+              refId="Package\GD_Student.Paths[Merge Join Output1]"
               endId="Package\GD_Student\New Student ?.Inputs[Conditional Split Input]"
               name="Merge Join Output"
               startId="Package\GD_Student\Merge Join.Outputs[Merge Join Output]" />
             <path
-              refId="Package\GD_Student.Paths[Merge Join Output4]"
+              refId="Package\GD_Student.Paths[Merge Join Output2]"
               endId="Package\GD_Student\Sort by BirthProvince.Inputs[Sort Input]"
               name="Merge Join Output"
               startId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Outputs[Merge Join Output]" />
             <path
-              refId="Package\GD_Student.Paths[Merge Join Output5]"
+              refId="Package\GD_Student.Paths[Merge Join Output3]"
               endId="Package\GD_Student\Transform MajorID to &quot;PSUM&quot;+MajorID.Inputs[Derived Column Input]"
               name="Merge Join Output"
               startId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Merge Join Output4]"
+              endId="Package\GD_Student\Union All.Inputs[Union All Input 1]"
+              name="Merge Join Output"
+              startId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH, Student Admit from 2558.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Merge Join Output5]"
+              endId="Package\GD_Student\Union All.Inputs[Union All Input 2]"
+              name="Merge Join Output"
+              startId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558.Outputs[Merge Join Output]" />
             <path
               refId="Package\GD_Student.Paths[NewRow]"
               endId="Package\GD_Student\FullName TH EN, Gender.Inputs[Derived Column Input]"
               name="NewRow"
               startId="Package\GD_Student\New Student ?.Outputs[NewRow]" />
             <path
-              refId="Package\GD_Student.Paths[OLE DB Source Output4]"
-              endId="Package\GD_Student\Sort by AcademicYearTH.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\GD_Student\OLE VD_AcademicYear.Outputs[OLE DB Source Output]" />
-            <path
               refId="Package\GD_Student.Paths[OLE DB Source Output3]"
+              endId="Package\GD_Student\Sort by STUDENT_ID.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\GD_Student.Paths[OLE DB Source Output4]"
+              endId="Package\GD_Student\Entrance Datasource.Inputs[Conditional Split Input]"
+              name="OLE DB Source Output"
+              startId="Package\GD_Student\OLE D_EntranceMethod.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\GD_Student.Paths[OLE DB Source Output1]"
               endId="Package\GD_Student\Sort by StudentID.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\GD_Student.Paths[OLE DB Source Output]"
+              endId="Package\GD_Student\Sort by AcademicYearTH.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\GD_Student\OLE VD_AcademicYear.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[OLE DB Source Output2]"
               endId="Package\GD_Student\Sort by ProvinceNameTH.Inputs[Sort Input]"
               name="OLE DB Source Output"
               startId="Package\GD_Student\OLE D_Province.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\GD_Student.Paths[OLE DB Source Output1]"
-              endId="Package\GD_Student\Sort by STUDENT_ID.Inputs[Sort Input]"
-              name="OLE DB Source Output"
-              startId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output]" />
-            <path
-              refId="Package\GD_Student.Paths[OLE DB Source Output]"
-              endId="Package\GD_Student\Entrance Datasource.Inputs[Conditional Split Input]"
-              name="OLE DB Source Output"
-              startId="Package\GD_Student\OLE D_EntranceMethod.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[Output 0]"
               endId="Package\GD_Student\Sort by PROV_NAME_TH.Inputs[Sort Input]"
@@ -20866,54 +20866,54 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Student\Entrance Datasource.Outputs[SIS]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output9]"
-              endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Right Input]"
+              endId="Package\GD_Student\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by Prov_ID.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by StudentID.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output8]"
-              endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input]"
+              endId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by Admit_Year.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by ProvinceNameTH.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output7]"
-              endId="Package\GD_Student\EntranceMethod before 2558 (0000).Inputs[Conditional Split Input]"
+              endId="Package\GD_Student\Student AdmitYearTH from 2558 or Ent_Method is 00.Inputs[Conditional Split Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort OraginEntMethodID Then AdmitYearTH.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output6]"
-              endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Right Input]"
+              endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by AcademicYearTH.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output5]"
-              endId="Package\GD_Student\Merge Join.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output4]"
               endId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output3]"
-              endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input]"
+              endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by AcademicYearTH.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output2]"
-              endId="Package\GD_Student\Student AdmitYearTH from 2558 or Ent_Method is 00.Inputs[Conditional Split Input]"
+              endId="Package\GD_Student\EntranceMethod before 2558 (0000).Inputs[Conditional Split Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort OraginEntMethodID Then AdmitYearTH.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output1]"
-              endId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Right Input]"
+              endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by ProvinceNameTH.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by Admit_Year.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output]"
-              endId="Package\GD_Student\Merge Join.Inputs[Merge Join Right Input]"
+              endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by StudentID.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by Prov_ID.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output4]"
+              endId="Package\GD_Student\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Student AdmitYear TH before 2558]"
               endId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558.Inputs[Merge Join Left Input]"
@@ -21029,65 +21029,69 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="128" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="265,42"
-          Id="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH"
-          TopLeft="392,946" />
-        <NodeLayout
-          Size="536,42"
-          Id="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH, Student Admit from 2558"
-          TopLeft="163.666666666667,1228.33333333333" />
-        <NodeLayout
           Size="191,42"
           Id="Package\GD_Student\OLE D_EntranceMethod"
           TopLeft="832,827" />
         <NodeLayout
-          Size="154,42"
-          Id="Package\GD_Student\Sort by Prov_ID"
-          TopLeft="350.5,1725.5" />
-        <NodeLayout
-          Size="255,42"
-          Id="Package\GD_Student\Join AdmitYear with AcademicYearTH"
-          TopLeft="617,1645" />
-        <NodeLayout
-          Size="151,42"
-          Id="Package\GD_Student\OLE D_Student"
-          TopLeft="631.380952380952,2290.42857142857" />
-        <NodeLayout
-          Size="148,42"
-          Id="Package\GD_Student\New Student ?"
-          TopLeft="453.5,698.5" />
-        <NodeLayout
-          Size="195,42"
-          Id="Package\GD_Student\Sort by PROV_NAME_TH"
-          TopLeft="449.666666666667,1997" />
-        <NodeLayout
-          Size="130,42"
-          Id="Package\GD_Student\Merge Join"
-          TopLeft="469,621" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\GD_Student\Regist2005_New_Student"
-          TopLeft="316,426" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\GD_Student\Entrance Datasource"
-          TopLeft="833,900" />
-        <NodeLayout
-          Size="196,42"
-          Id="Package\GD_Student\FullName TH EN, Gender"
-          TopLeft="429.5,776.5" />
+          Size="187,42"
+          Id="Package\GD_Student\OLE VD_AcademicYear"
+          TopLeft="868.095238095238,1426.28571428571" />
         <NodeLayout
           Size="240,42"
           Id="Package\GD_Student\Transform Null EntranceMethodID"
           TopLeft="588,1483" />
         <NodeLayout
-          Size="178,42"
-          Id="Package\GD_Student\Sort by BirthProvince"
-          TopLeft="568.5,1723.5" />
+          Size="287,42"
+          Id="Package\GD_Student\Sort OraginEntMethodID Then AdmitYearTH"
+          TopLeft="784,977" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH"
+          TopLeft="392,946" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\GD_Student\Sort by AcademicYearTH"
+          TopLeft="869.380952380952,1514.42857142857" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\GD_Student\OLE D_Province"
+          TopLeft="794.214285714286,1910.21428571429" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\GD_Student\Join AdmitYear with AcademicYearTH"
+          TopLeft="617,1645" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\GD_Student\Join BirthProvinceID with Prov_ID"
+          TopLeft="421.5,1838.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\GD_Student\Sort by Admit_Year"
+          TopLeft="617,1550" />
         <NodeLayout
           Size="458,42"
           Id="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558"
           TopLeft="771.666666666667,1287.66666666667" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\GD_Student\Sort by PROV_NAME_TH"
+          TopLeft="449.666666666667,1997" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\GD_Student\OLD BI_General D_Student"
+          TopLeft="556,430" />
+        <NodeLayout
+          Size="196,42"
+          Id="Package\GD_Student\FullName TH EN, Gender"
+          TopLeft="429.5,776.5" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\GD_Student\Transform incorrect Prov_Name_TH"
+          TopLeft="422.095238095238,1921.14285714286" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\GD_Student\Sort by Prov_ID"
+          TopLeft="350.5,1733.5" />
         <NodeLayout
           Size="265,42"
           Id="Package\GD_Student\Transform MajorID to &quot;PSUM&quot;+MajorID"
@@ -21097,91 +21101,61 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\GD_Student\EntranceMethod before 2558 (0000)"
           TopLeft="801,1074" />
         <NodeLayout
-          Size="238,42"
-          Id="Package\GD_Student\Join BirthProvinceID with Prov_ID"
-          TopLeft="421.5,1838.5" />
+          Size="179,42"
+          Id="Package\GD_Student\Sort by STUDENT_ID"
+          TopLeft="329,512" />
         <NodeLayout
-          Size="187,42"
-          Id="Package\GD_Student\OLE VD_AcademicYear"
-          TopLeft="868.095238095238,1426.28571428571" />
+          Size="148,42"
+          Id="Package\GD_Student\New Student ?"
+          TopLeft="453.5,698.5" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\GD_Student\OLE D_Student"
+          TopLeft="631.380952380952,2290.42857142857" />
         <NodeLayout
           Size="197,42"
           Id="Package\GD_Student\Sort by ProvinceNameTH"
           TopLeft="766.238095238095,1993" />
         <NodeLayout
-          Size="179,42"
-          Id="Package\GD_Student\Sort by STUDENT_ID"
-          TopLeft="329,512" />
-        <NodeLayout
-          Size="154,42"
-          Id="Package\GD_Student\OLE D_Province"
-          TopLeft="794.214285714286,1910.21428571429" />
-        <NodeLayout
-          Size="287,42"
-          Id="Package\GD_Student\Sort OraginEntMethodID Then AdmitYearTH"
-          TopLeft="784,977" />
-        <NodeLayout
-          Size="187,42"
-          Id="Package\GD_Student\Transform Ent_Method"
-          TopLeft="435,860" />
-        <NodeLayout
           Size="164,42"
           Id="Package\GD_Student\Sort by StudentID"
           TopLeft="578,515" />
         <NodeLayout
-          Size="208,42"
-          Id="Package\GD_Student\OLD BI_General D_Student"
-          TopLeft="556,430" />
-        <NodeLayout
-          Size="195,42"
-          Id="Package\GD_Student\Sort by AcademicYearTH"
-          TopLeft="869.380952380952,1514.42857142857" />
-        <NodeLayout
-          Size="121,42"
-          Id="Package\GD_Student\Union All"
-          TopLeft="646,1415" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\GD_Student\Sort by Admit_Year"
-          TopLeft="617,1550" />
+          Size="177,42"
+          Id="Package\GD_Student\Entrance Datasource"
+          TopLeft="833,900" />
         <NodeLayout
           Size="331,42"
           Id="Package\GD_Student\Student AdmitYearTH from 2558 or Ent_Method is 00"
           TopLeft="363,1052" />
         <NodeLayout
-          Size="248,42"
-          Id="Package\GD_Student\Transform incorrect Prov_Name_TH"
-          TopLeft="422.095238095238,1921.14285714286" />
-        <NodeLayout
           Size="287,42"
           Id="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH"
           TopLeft="559.523809523809,2125.28571428571" />
         <NodeLayout
+          Size="200,42"
+          Id="Package\GD_Student\Regist2005_New_Student"
+          TopLeft="316,426" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\GD_Student\Sort by BirthProvince"
+          TopLeft="568.5,1731.5" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\GD_Student\Merge Join"
+          TopLeft="469,621" />
+        <NodeLayout
+          Size="536,42"
+          Id="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original And AdmitYearTH, Student Admit from 2558"
+          TopLeft="163.666666666667,1228.33333333333" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\GD_Student\Transform Ent_Method"
+          TopLeft="435,860" />
+        <NodeLayout
           Size="178,42"
           Id="Package\GD_Student\ADO NET C_Province"
           TopLeft="338.5,1643.5" />
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Union All Output 1]"
-          TopLeft="707.25,1457">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[Student AdmitYearTH from 2558]"
           TopLeft="474.666666666667,1094">
@@ -21256,30 +21230,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[Sort Output9]"
-          TopLeft="427.5,1767.5">
+          TopLeft="660,557">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="74.6666666666666,71"
+              EndConnector="-105.666666666667,64"
               Start="0,0"
-              End="74.6666666666666,63.5">
+              End="-105.666666666667,56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.3155258764608" />
+                    End="0,33.9331306990881" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,38.3155258764608"
-                    Point2="0,42.3155258764608"
-                    Point3="4,42.3155258764608" />
+                    Point1="0,33.9331306990881"
+                    Point2="0,37.9331306990881"
+                    Point3="-4,37.9331306990881" />
                   <mssgle:LineSegment
-                    End="70.6666666666666,42.3155258764608" />
+                    End="-101.666666666667,37.9331306990881" />
                   <mssgle:CubicBezierSegment
-                    Point1="70.6666666666666,42.3155258764608"
-                    Point2="74.6666666666666,42.3155258764608"
-                    Point3="74.6666666666666,46.3155258764608" />
+                    Point1="-101.666666666667,37.9331306990881"
+                    Point2="-105.666666666667,37.9331306990881"
+                    Point3="-105.666666666667,41.9331306990881" />
                   <mssgle:LineSegment
-                    End="74.6666666666666,63.5" />
+                    End="-105.666666666667,56.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21290,208 +21264,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[Sort Output8]"
-          TopLeft="702.666666666667,1592">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,53"
-              Start="0,0"
-              End="0,45.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output7]"
-          TopLeft="926.75,1019">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,55"
-              Start="0,0"
-              End="0,47.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output6]"
-          TopLeft="966.880952380952,1556.42857142857">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-181.214285714285,88.57142857143"
-              Start="0,0"
-              End="-181.214285714285,81.07142857143">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.8114909252876" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,48.8114909252876"
-                    Point2="0,52.8114909252876"
-                    Point3="-4,52.8114909252876" />
-                  <mssgle:LineSegment
-                    End="-177.214285714285,52.8114909252876" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-177.214285714285,52.8114909252876"
-                    Point2="-181.214285714285,52.8114909252876"
-                    Point3="-181.214285714285,56.8114909252876" />
-                  <mssgle:LineSegment
-                    End="-181.214285714285,81.07142857143" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output5]"
-          TopLeft="418.5,554">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="95.1666666666667,67"
-              Start="0,0"
-              End="95.1666666666667,59.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.7112462006079" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.7112462006079"
-                    Point2="0,39.7112462006079"
-                    Point3="4,39.7112462006079" />
-                  <mssgle:LineSegment
-                    End="91.1666666666667,39.7112462006079" />
-                  <mssgle:CubicBezierSegment
-                    Point1="91.1666666666667,39.7112462006079"
-                    Point2="95.1666666666667,39.7112462006079"
-                    Point3="95.1666666666667,43.7112462006079" />
-                  <mssgle:LineSegment
-                    End="95.1666666666667,59.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output4]"
-          TopLeft="547.166666666667,2039">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="109.357142857142,86.2857142857101"
-              Start="0,0"
-              End="109.357142857142,78.7857142857101">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,47.484407484405" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.484407484405"
-                    Point2="0,51.484407484405"
-                    Point3="4,51.484407484405" />
-                  <mssgle:LineSegment
-                    End="105.357142857142,51.484407484405" />
-                  <mssgle:CubicBezierSegment
-                    Point1="105.357142857142,51.484407484405"
-                    Point2="109.357142857142,51.484407484405"
-                    Point3="109.357142857142,55.484407484405" />
-                  <mssgle:LineSegment
-                    End="109.357142857142,78.7857142857101" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output3]"
-          TopLeft="657.5,1765.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-78.6666666666667,73"
-              Start="0,0"
-              End="-78.6666666666667,65.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.5075125208682" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,39.5075125208682"
-                    Point2="0,43.5075125208682"
-                    Point3="-4,43.5075125208682" />
-                  <mssgle:LineSegment
-                    End="-74.6666666666667,43.5075125208682" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-74.6666666666667,43.5075125208682"
-                    Point2="-78.6666666666667,43.5075125208682"
-                    Point3="-78.6666666666667,47.5075125208682" />
-                  <mssgle:LineSegment
-                    End="-78.6666666666667,65.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output2]"
-          TopLeft="526.5,988">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,64"
-              Start="0,0"
-              End="0,56.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output1]"
           TopLeft="864.738095238095,2035">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21525,31 +21297,233 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output]"
-          TopLeft="660,557">
+          Id="Package\GD_Student.Paths[Sort Output7]"
+          TopLeft="526.5,988">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-105.666666666667,64"
+              EndConnector="0,64"
               Start="0,0"
-              End="-105.666666666667,56.5">
+              End="0,56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.9331306990881" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.9331306990881"
-                    Point2="0,37.9331306990881"
-                    Point3="-4,37.9331306990881" />
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Sort Output6]"
+          TopLeft="657.5,1773.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-78.6666666666667,65"
+              Start="0,0"
+              End="-78.6666666666667,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-101.666666666667,37.9331306990881" />
+                    End="0,34.7395659432387" />
                   <mssgle:CubicBezierSegment
-                    Point1="-101.666666666667,37.9331306990881"
-                    Point2="-105.666666666667,37.9331306990881"
-                    Point3="-105.666666666667,41.9331306990881" />
+                    Point1="0,34.7395659432387"
+                    Point2="0,38.7395659432387"
+                    Point3="-4,38.7395659432387" />
                   <mssgle:LineSegment
-                    End="-105.666666666667,56.5" />
+                    End="-74.6666666666667,38.7395659432387" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-74.6666666666667,38.7395659432387"
+                    Point2="-78.6666666666667,38.7395659432387"
+                    Point3="-78.6666666666667,42.7395659432387" />
+                  <mssgle:LineSegment
+                    End="-78.6666666666667,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Sort Output5]"
+          TopLeft="547.166666666667,2039">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="109.357142857142,86.2857142857101"
+              Start="0,0"
+              End="109.357142857142,78.7857142857101">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.484407484405" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.484407484405"
+                    Point2="0,51.484407484405"
+                    Point3="4,51.484407484405" />
+                  <mssgle:LineSegment
+                    End="105.357142857142,51.484407484405" />
+                  <mssgle:CubicBezierSegment
+                    Point1="105.357142857142,51.484407484405"
+                    Point2="109.357142857142,51.484407484405"
+                    Point3="109.357142857142,55.484407484405" />
+                  <mssgle:LineSegment
+                    End="109.357142857142,78.7857142857101" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Sort Output4]"
+          TopLeft="418.5,554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.1666666666667,67"
+              Start="0,0"
+              End="95.1666666666667,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7112462006079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.7112462006079"
+                    Point2="0,39.7112462006079"
+                    Point3="4,39.7112462006079" />
+                  <mssgle:LineSegment
+                    End="91.1666666666667,39.7112462006079" />
+                  <mssgle:CubicBezierSegment
+                    Point1="91.1666666666667,39.7112462006079"
+                    Point2="95.1666666666667,39.7112462006079"
+                    Point3="95.1666666666667,43.7112462006079" />
+                  <mssgle:LineSegment
+                    End="95.1666666666667,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Sort Output3]"
+          TopLeft="966.880952380952,1556.42857142857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-181.214285714285,88.57142857143"
+              Start="0,0"
+              End="-181.214285714285,81.07142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.8114909252876" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.8114909252876"
+                    Point2="0,52.8114909252876"
+                    Point3="-4,52.8114909252876" />
+                  <mssgle:LineSegment
+                    End="-177.214285714285,52.8114909252876" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-177.214285714285,52.8114909252876"
+                    Point2="-181.214285714285,52.8114909252876"
+                    Point3="-181.214285714285,56.8114909252876" />
+                  <mssgle:LineSegment
+                    End="-181.214285714285,81.07142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Sort Output2]"
+          TopLeft="926.75,1019">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Sort Output1]"
+          TopLeft="702.666666666667,1592">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Sort Output]"
+          TopLeft="427.5,1775.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="74.6666666666666,63"
+              Start="0,0"
+              End="74.6666666666666,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5475792988314" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5475792988314"
+                    Point2="0,37.5475792988314"
+                    Point3="4,37.5475792988314" />
+                  <mssgle:LineSegment
+                    End="70.6666666666666,37.5475792988314" />
+                  <mssgle:CubicBezierSegment
+                    Point1="70.6666666666666,37.5475792988314"
+                    Point2="74.6666666666666,37.5475792988314"
+                    Point3="74.6666666666666,41.5475792988314" />
+                  <mssgle:LineSegment
+                    End="74.6666666666666,55.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21606,18 +21580,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[OLE DB Source Output4]"
-          TopLeft="964.238095238095,1468.28571428571">
+          TopLeft="924.5,869">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.1428571428601"
+              EndConnector="0,31"
               Start="0,0"
-              End="0,38.6428571428601">
+              End="0,23.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.6428571428601" />
+                    End="0,23.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21628,18 +21602,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[OLE DB Source Output3]"
-          TopLeft="660,472">
+          TopLeft="417.25,468">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,43"
+              EndConnector="0,44"
               Start="0,0"
-              End="0,35.5">
+              End="0,36.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.5" />
+                    End="0,36.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21672,18 +21646,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[OLE DB Source Output1]"
-          TopLeft="417.25,468">
+          TopLeft="660,472">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,44"
+              EndConnector="0,43"
               Start="0,0"
-              End="0,36.5">
+              End="0,35.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,36.5" />
+                    End="0,35.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21694,18 +21668,18 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Student.Paths[OLE DB Source Output]"
-          TopLeft="924.5,869">
+          TopLeft="964.238095238095,1468.28571428571">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,31"
+              EndConnector="0,46.1428571428601"
               Start="0,0"
-              End="0,23.5">
+              End="0,38.6428571428601">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.5" />
+                    End="0,38.6428571428601" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21739,7 +21713,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Merge Join Output5]"
+          Id="Package\GD_Student.Paths[Merge Join Output3]"
           TopLeft="706.202380952381,2167.28571428571">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21761,31 +21735,31 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Merge Join Output4]"
+          Id="Package\GD_Student.Paths[Merge Join Output2]"
           TopLeft="744.5,1687">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-87,36.5"
+              EndConnector="-87,44.5"
               Start="0,0"
-              End="-87,29">
+              End="-87,37">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.25" />
+                    End="0,18.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,14.25"
-                    Point2="0,18.25"
-                    Point3="-4,18.25" />
+                    Point1="0,18.25"
+                    Point2="0,22.25"
+                    Point3="-4,22.25" />
                   <mssgle:LineSegment
-                    End="-83,18.25" />
+                    End="-83,22.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="-83,18.25"
-                    Point2="-87,18.25"
-                    Point3="-87,22.25" />
+                    Point1="-83,22.25"
+                    Point2="-87,22.25"
+                    Point3="-87,26.25" />
                   <mssgle:LineSegment
-                    End="-87,29" />
+                    End="-87,37" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -21795,7 +21769,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Merge Join Output3]"
+          Id="Package\GD_Student.Paths[Merge Join Output1]"
           TopLeft="530.75,663">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21817,7 +21791,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Merge Join Output2]"
+          Id="Package\GD_Student.Paths[Merge Join Output]"
           TopLeft="543.297619047619,1880.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21830,74 +21804,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,33.1428571428601" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Merge Join Output1]"
-          TopLeft="431.666666666667,1270.33333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="256,144.66666666667"
-              Start="0,0"
-              End="256,137.16666666667">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,81.6672104404587" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,81.6672104404587"
-                    Point2="0,85.6672104404587"
-                    Point3="4,85.6672104404587" />
-                  <mssgle:LineSegment
-                    End="252,85.6672104404587" />
-                  <mssgle:CubicBezierSegment
-                    Point1="252,85.6672104404587"
-                    Point2="256,85.6672104404587"
-                    Point3="256,89.6672104404587" />
-                  <mssgle:LineSegment
-                    End="256,137.16666666667" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Student.Paths[Merge Join Output]"
-          TopLeft="1000.66666666667,1329.66666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-275.333333333334,85.3333333333301"
-              Start="0,0"
-              End="-275.333333333334,77.8333333333301">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.5318107667191" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,46.5318107667191"
-                    Point2="0,50.5318107667191"
-                    Point3="-4,50.5318107667191" />
-                  <mssgle:LineSegment
-                    End="-271.333333333334,50.5318107667191" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-271.333333333334,50.5318107667191"
-                    Point2="-275.333333333334,50.5318107667191"
-                    Point3="-275.333333333334,54.5318107667191" />
-                  <mssgle:LineSegment
-                    End="-275.333333333334,77.8333333333301" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -22072,14 +21978,108 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="0,48"
               Start="0,0"
-              End="0,32.5">
+              End="0,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\GD_Student\Union All"
+          TopLeft="644,1387" />
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Merge Join Output4]"
+          TopLeft="431.666666666667,1270.33333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="254,116.66666666667"
+              Start="0,0"
+              End="254,109.16666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.0864600326284" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,65.0864600326284"
+                    Point2="0,69.0864600326284"
+                    Point3="4,69.0864600326284" />
+                  <mssgle:LineSegment
+                    End="250,69.0864600326284" />
+                  <mssgle:CubicBezierSegment
+                    Point1="250,69.0864600326284"
+                    Point2="254,69.0864600326284"
+                    Point3="254,73.0864600326284" />
+                  <mssgle:LineSegment
+                    End="254,109.16666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Merge Join Output5]"
+          TopLeft="1000.66666666667,1329.66666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-277.333333333334,57.3333333333301"
+              Start="0,0"
+              End="-277.333333333334,49.8333333333301">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9510603588888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.9510603588888"
+                    Point2="0,33.9510603588888"
+                    Point3="-4,33.9510603588888" />
+                  <mssgle:LineSegment
+                    End="-273.333333333334,33.9510603588888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-273.333333333334,33.9510603588888"
+                    Point2="-277.333333333334,33.9510603588888"
+                    Point3="-277.333333333334,37.9510603588888" />
+                  <mssgle:LineSegment
+                    End="-277.333333333334,49.8333333333301" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Student.Paths[Union All Output 1]"
+          TopLeft="706.25,1429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -22093,6 +22093,32 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\GD_Student\OLE D_EntranceMethod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GD_Student\OLE D_Province">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\GD_Student\OLD BI_General D_Student">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -22122,32 +22148,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\GD_Student\OLE D_Province">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\GD_Student\OLD BI_General D_Student">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
