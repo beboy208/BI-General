@@ -7,13 +7,13 @@
   DTS:CreatorName="NR-PC\Nontapon"
   DTS:DTSID="{220E22E4-3CAB-4536-AD56-F6D673FB9DF3}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LastModifiedProductVersion="13.0.2165.0"
   DTS:LocaleID="1033"
   DTS:ObjectName="ETL_D_PStaffProvinceWithCountry"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{C65F773F-7611-4E04-9CA1-F3D140504155}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{CFFA8CE5-7397-4214-8855-18215837A9FE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -416,7 +416,7 @@ left join CENTRAL.C_COUNTRY coun on S.P_COUNTRY = COUN.COUNTRY_ID</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -1822,21 +1822,25 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="376,42"
-          Id="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID)"
-          TopLeft="398,323" />
+          Size="171,42"
+          Id="Package\Get Province and Country from Central\OLE DB Destination"
+          TopLeft="503,489" />
         <NodeLayout
           Size="163,42"
           Id="Package\Get Province and Country from Central\Transform Region"
           TopLeft="503,405" />
         <NodeLayout
-          Size="171,42"
-          Id="Package\Get Province and Country from Central\OLE DB Destination"
-          TopLeft="503,489" />
+          Size="376,42"
+          Id="Package\Get Province and Country from Central\Generate StaffProvinceID by Concat(&quot;C&quot;,CountryID,&quot;P&quot;,ProvID)"
+          TopLeft="398,323" />
         <NodeLayout
           Size="316,42"
           Id="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff"
           TopLeft="420,140" />
+        <NodeLayout
+          Size="316,42"
+          Id="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID"
+          TopLeft="424,232" />
         <EdgeLayout
           Id="Package\Get Province and Country from Central.Paths[Output 0]"
           TopLeft="586.5,447">
@@ -1860,32 +1864,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Get Province and Country from Central.Paths[Derived Column Output]"
-          TopLeft="585.25,365">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,40"
-              Start="0,0"
-              End="0,32.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="316,42"
-          Id="Package\Get Province and Country from Central\Transform Null value of ProvinceID and CountryID"
-          TopLeft="424,232" />
-        <EdgeLayout
           Id="Package\Get Province and Country from Central.Paths[Derived Column Output1]"
           TopLeft="584,274">
           <EdgeLayout.Curve>
@@ -1899,6 +1877,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Get Province and Country from Central.Paths[Derived Column Output]"
+          TopLeft="585.25,365">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1933,6 +1933,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Get Province and Country from Central\OLE DB Destination">
     <Properties>
       <Property>
@@ -1942,14 +1950,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Get Province and Country from Central\ADO NET Available Province_Country from P_Staff">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

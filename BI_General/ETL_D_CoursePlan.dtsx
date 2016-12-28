@@ -12,8 +12,8 @@
   DTS:ObjectName="ETL_D_CoursePlan"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{647DE86F-2A46-400C-BF9D-AE4384E7532C}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{B0F22728-DECC-46D5-AFF4-CA12563BC578}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2639,6 +2639,16 @@ order by course_plan_id</property>
                       lineageId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Output].Columns[COURSE_CATEGORY_NAME_ENG]"
                       name="COURSE_CATEGORY_NAME_ENG"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Output].Columns[STUDY_LEVEL_NAME_ENG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Output].ExternalColumns[STUDY_LEVEL_NAME_ENG]"
+                      length="100"
+                      lineageId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Output].Columns[STUDY_LEVEL_NAME_ENG]"
+                      name="STUDY_LEVEL_NAME_ENG"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2809,6 +2819,11 @@ order by course_plan_id</property>
                       dataType="wstr"
                       length="150"
                       name="COURSE_CATEGORY_NAME_ENG" />
+                    <externalMetadataColumn
+                      refId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Output].ExternalColumns[STUDY_LEVEL_NAME_ENG]"
+                      dataType="wstr"
+                      length="100"
+                      name="STUDY_LEVEL_NAME_ENG" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2908,6 +2923,12 @@ order by course_plan_id</property>
                       length="80"
                       lineageId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Error Output].Columns[STUDY_LEVEL_NAME]"
                       name="STUDY_LEVEL_NAME" />
+                    <outputColumn
+                      refId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Error Output].Columns[STUDY_LEVEL_NAME_ENG]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Error Output].Columns[STUDY_LEVEL_NAME_ENG]"
+                      name="STUDY_LEVEL_NAME_ENG" />
                     <outputColumn
                       refId="Package\Import Regist2005New Course\OLE DB Regist2005New Course Plan.Outputs[OLE DB Source Error Output].Columns[COURSE_CATEGORY_ID]"
                       dataType="wstr"

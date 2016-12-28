@@ -1,11 +1,11 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/5/2016 12:44:59 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="NR-PC"
   DTS:CreatorName="NR-PC\Nontapon"
-  DTS:DTSID="{DBF32D4F-17A8-42F5-B219-6791CA0CFF1B}"
+  DTS:DTSID="{0ABA3BCA-840A-4567-B0B0-C03564199F7D}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.2165.0"
   DTS:LocaleID="1033"
@@ -13,7 +13,7 @@
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
   DTS:VersionBuild="74"
-  DTS:VersionGUID="{C60D63E7-8C96-46F2-A263-B2FADAA7E8E7}">
+  DTS:VersionGUID="{E31A3392-7637-4BE6-ADB2-4050947CEB79}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -22,7 +22,7 @@
       DTS:refId="Package\Exec ETL_D_CoursePlan"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Execute Package Task"
-      DTS:DTSID="{051710AE-1B97-4DC4-A593-5CCDE6222498}"
+      DTS:DTSID="{E74777A0-3C16-4E8A-8685-1AA871B7E06C}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Exec ETL_D_CoursePlan"
@@ -39,7 +39,7 @@
       DTS:refId="Package\Exec ETL_EntranceMethod"
       DTS:CreationName="Microsoft.ExecutePackageTask"
       DTS:Description="Execute Package Task"
-      DTS:DTSID="{81DD14B0-BCC5-4F47-918D-51E17198A476}"
+      DTS:DTSID="{BF99FC53-D22F-4336-A3B6-08B0E4ABCDFD}"
       DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Exec ETL_EntranceMethod"
@@ -56,7 +56,7 @@
       DTS:refId="Package\GD_Student"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{aa37f16b-9e43-4008-85a1-8cfceb591042}"
+      DTS:DTSID="{18FCC78F-83DC-47C9-9740-497ECE7C75D9}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="GD_Student"
@@ -108,8 +108,8 @@ from Central.C_Province</property>
               <connections>
                 <connection
                   refId="Package\GD_Student\ADO NET C_Province.Connections[IDbConnection]"
-                  connectionManagerID="{40BD7570-6857-4745-862D-8F53F4A534DC}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[PSUFINANCE.CIESORN]"
+                  connectionManagerID="{40BD7570-6857-4745-862D-8F53F4A534DC}:invalid"
+                  connectionManagerRefId="{40BD7570-6857-4745-862D-8F53F4A534DC}:invalid"
                   description="Managed connection manager"
                   name="IDbConnection" />
               </connections>
@@ -6457,8 +6457,8 @@ from Central.C_Province</property>
               <connections>
                 <connection
                   refId="Package\GD_Student\OLD BI_General D_Student.Connections[OleDbConnection]"
-                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[venus.phuket.psu.ac.th.BI_General.BIUser]"
+                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
+                  connectionManagerRefId="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -6956,8 +6956,8 @@ from Central.C_Province</property>
               <connections>
                 <connection
                   refId="Package\GD_Student\OLE D_EntranceMethod.Connections[OleDbConnection]"
-                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[venus.phuket.psu.ac.th.BI_General.BIUser]"
+                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
+                  connectionManagerRefId="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -7191,8 +7191,8 @@ from Central.C_Province</property>
               <connections>
                 <connection
                   refId="Package\GD_Student\OLE D_Province.Connections[OleDbConnection]"
-                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[venus.phuket.psu.ac.th.BI_General.BIUser]"
+                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
+                  connectionManagerRefId="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -7500,8 +7500,8 @@ from Central.C_Province</property>
               <connections>
                 <connection
                   refId="Package\GD_Student\OLE D_Student.Connections[OleDbConnection]"
-                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[venus.phuket.psu.ac.th.BI_General.BIUser]"
+                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
+                  connectionManagerRefId="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -7810,8 +7810,8 @@ from Central.C_Province</property>
               <connections>
                 <connection
                   refId="Package\GD_Student\OLE VD_AcademicYear.Connections[OleDbConnection]"
-                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[venus.phuket.psu.ac.th.BI_General.BIUser]"
+                  connectionManagerID="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
+                  connectionManagerRefId="{9FE67EA8-839F-41EE-AEE3-861834BD44D9}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -8565,8 +8565,8 @@ left join regist2005_new.study_type t on t.study_type_id = s.study_type_id</prop
               <connections>
                 <connection
                   refId="Package\GD_Student\Regist2005_New_Student.Connections[OleDbConnection]"
-                  connectionManagerID="{C0415C44-F42A-4FB0-A2CB-8AAC333A1C79}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[REGIST2005_NEW.REGIST2005_NEW]"
+                  connectionManagerID="{C0415C44-F42A-4FB0-A2CB-8AAC333A1C79}:invalid"
+                  connectionManagerRefId="{C0415C44-F42A-4FB0-A2CB-8AAC333A1C79}:invalid"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -20873,14 +20873,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Student\New Student ?.Outputs[NewRow]" />
             <path
               refId="Package\GD_Student.Paths[OLE DB Source Output4]"
-              endId="Package\GD_Student\Sort by ProvinceNameTH.Inputs[Sort Input]"
+              endId="Package\GD_Student\Sort by STUDENT_ID.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\GD_Student\OLE D_Province.Outputs[OLE DB Source Output]" />
+              startId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[OLE DB Source Output3]"
-              endId="Package\GD_Student\Sort by AcademicYearTH.Inputs[Sort Input]"
+              endId="Package\GD_Student\Entrance Datasource.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
-              startId="Package\GD_Student\OLE VD_AcademicYear.Outputs[OLE DB Source Output]" />
+              startId="Package\GD_Student\OLE D_EntranceMethod.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[OLE DB Source Output2]"
               endId="Package\GD_Student\Sort by StudentID.Inputs[Sort Input]"
@@ -20888,14 +20888,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Student\OLD BI_General D_Student.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[OLE DB Source Output1]"
-              endId="Package\GD_Student\Entrance Datasource.Inputs[Conditional Split Input]"
+              endId="Package\GD_Student\Sort by AcademicYearTH.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\GD_Student\OLE D_EntranceMethod.Outputs[OLE DB Source Output]" />
+              startId="Package\GD_Student\OLE VD_AcademicYear.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[OLE DB Source Output]"
-              endId="Package\GD_Student\Sort by STUDENT_ID.Inputs[Sort Input]"
+              endId="Package\GD_Student\Sort by ProvinceNameTH.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\GD_Student\Regist2005_New_Student.Outputs[OLE DB Source Output]" />
+              startId="Package\GD_Student\OLE D_Province.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\GD_Student.Paths[Output 0]"
               endId="Package\GD_Student\Sort by PROV_NAME_TH.Inputs[Sort Input]"
@@ -20908,54 +20908,54 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Student\Entrance Datasource.Outputs[SIS]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output9]"
-              endId="Package\GD_Student\Merge Join.Inputs[Merge Join Left Input]"
+              endId="Package\GD_Student\Merge Join.Inputs[Merge Join Right Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by StudentID.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Sort Output8]"
-              endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort by Prov_ID.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output7]"
-              endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort by Admit_Year.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output6]"
-              endId="Package\GD_Student\EntranceMethod before 2558 (0000).Inputs[Conditional Split Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort OraginEntMethodID Then AdmitYearTH.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output5]"
-              endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort by AcademicYearTH.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output4]"
-              endId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output3]"
-              endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output2]"
-              endId="Package\GD_Student\Student AdmitYearTH from 2558 or Ent_Method is 00.Inputs[Conditional Split Input]"
-              name="Sort Output"
-              startId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Student.Paths[Sort Output1]"
               endId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\GD_Student\Sort by ProvinceNameTH.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Student.Paths[Sort Output]"
-              endId="Package\GD_Student\Merge Join.Inputs[Merge Join Right Input]"
+              refId="Package\GD_Student.Paths[Sort Output7]"
+              endId="Package\GD_Student\Student AdmitYearTH from 2558 or Ent_Method is 00.Inputs[Conditional Split Input]"
               name="Sort Output"
-              startId="Package\GD_Student\Sort by StudentID.Outputs[Sort Output]" />
+              startId="Package\GD_Student\Sort by Ent_Method Then AdmitYearTH.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output6]"
+              endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort by BirthProvince.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output5]"
+              endId="Package\GD_Student\Join PROV_NAME_TH with ProvinceNameTH.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort by PROV_NAME_TH.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output4]"
+              endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort by AcademicYearTH.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output3]"
+              endId="Package\GD_Student\EntranceMethod before 2558 (0000).Inputs[Conditional Split Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort OraginEntMethodID Then AdmitYearTH.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output2]"
+              endId="Package\GD_Student\Join AdmitYear with AcademicYearTH.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort by Admit_Year.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output1]"
+              endId="Package\GD_Student\Join BirthProvinceID with Prov_ID.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort by Prov_ID.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Student.Paths[Sort Output]"
+              endId="Package\GD_Student\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\GD_Student\Sort by STUDENT_ID.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Student.Paths[Student AdmitYear TH before 2558]"
               endId="Package\GD_Student\Join Ent_Method with EntranceMethod_SIS_Original, Student Admit before 2558.Inputs[Merge Join Left Input]"
@@ -20980,7 +20980,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint]"
       DTS:CreationName=""
-      DTS:DTSID="{BD0717BA-C3BA-48B5-958B-F3D9F29CDBAB}"
+      DTS:DTSID="{C77A0435-746F-4EB9-B0D3-A51729B16931}"
       DTS:From="Package\Exec ETL_D_CoursePlan"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
@@ -20988,7 +20988,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
-      DTS:DTSID="{B6D1CAAA-9E4E-43B1-851A-B7DF37273B7D}"
+      DTS:DTSID="{DFE6C6AA-7B7F-4546-8C65-83C1B696BAA4}"
       DTS:From="Package\Exec ETL_EntranceMethod"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
@@ -21297,7 +21297,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output9]"
+          Id="Package\GD_Student.Paths[Sort Output]"
           TopLeft="418.5,554">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21331,7 +21331,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output8]"
+          Id="Package\GD_Student.Paths[Sort Output1]"
           TopLeft="427.5,1775.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21365,7 +21365,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output7]"
+          Id="Package\GD_Student.Paths[Sort Output2]"
           TopLeft="702.666666666667,1592">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21387,7 +21387,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output6]"
+          Id="Package\GD_Student.Paths[Sort Output3]"
           TopLeft="926.75,1019">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21409,7 +21409,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output5]"
+          Id="Package\GD_Student.Paths[Sort Output4]"
           TopLeft="966.880952380952,1556.42857142857">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21443,7 +21443,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output4]"
+          Id="Package\GD_Student.Paths[Sort Output5]"
           TopLeft="547.166666666667,2039">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21477,7 +21477,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output3]"
+          Id="Package\GD_Student.Paths[Sort Output6]"
           TopLeft="657.5,1773.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21511,7 +21511,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output2]"
+          Id="Package\GD_Student.Paths[Sort Output7]"
           TopLeft="526.5,988">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21533,7 +21533,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output1]"
+          Id="Package\GD_Student.Paths[Sort Output8]"
           TopLeft="864.738095238095,2035">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21567,7 +21567,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[Sort Output]"
+          Id="Package\GD_Student.Paths[Sort Output9]"
           TopLeft="660,557">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21647,7 +21647,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[OLE DB Source Output4]"
+          Id="Package\GD_Student.Paths[OLE DB Source Output]"
           TopLeft="867.97619047619,1952.21428571429">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21669,7 +21669,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[OLE DB Source Output3]"
+          Id="Package\GD_Student.Paths[OLE DB Source Output1]"
           TopLeft="964.238095238095,1468.28571428571">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21713,7 +21713,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[OLE DB Source Output1]"
+          Id="Package\GD_Student.Paths[OLE DB Source Output3]"
           TopLeft="924.5,869">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -21735,7 +21735,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Student.Paths[OLE DB Source Output]"
+          Id="Package\GD_Student.Paths[OLE DB Source Output4]"
           TopLeft="417.25,468">
           <EdgeLayout.Curve>
             <mssgle:Curve
