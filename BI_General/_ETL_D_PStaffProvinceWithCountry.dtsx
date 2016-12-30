@@ -5,15 +5,15 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="NR-PC"
   DTS:CreatorName="NR-PC\Nontapon"
-  DTS:DTSID="{220E22E4-3CAB-4536-AD56-F6D673FB9DF3}"
+  DTS:DTSID="{CF46E8CF-D473-4574-AB77-5FB63D3B1153}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="13.0.2165.0"
   DTS:LocaleID="1033"
-  DTS:ObjectName="ETL_D_PStaffProvinceWithCountry"
+  DTS:ObjectName="_ETL_D_PStaffProvinceWithCountry"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{CFFA8CE5-7397-4214-8855-18215837A9FE}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{34D99DC5-32AA-47A6-84A0-47FCDD99D2F5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
