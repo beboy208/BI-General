@@ -12,8 +12,8 @@
   DTS:ObjectName="ETL_D_PSU_Employee"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="95"
-  DTS:VersionGUID="{7F5D4608-DF89-4406-9788-7850BC8CB5D0}">
+  DTS:VersionBuild="98"
+  DTS:VersionGUID="{B8B36C56-7E85-4B85-AC55-CD9A0A4AA77F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -13742,13 +13742,6 @@ from Regist2005_new.AD_DETAIL</property>
                       externalMetadataColumnId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StaffTypeNameEN]"
                       lineageId="Package\GD_Employee\Union All.Outputs[Union All Output 1].Columns[STAFF_TYPE_NAME_ENG]" />
                     <inputColumn
-                      refId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USERNAME]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="USERNAME"
-                      externalMetadataColumnId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeePassport]"
-                      lineageId="Package\GD_Employee\Union All.Outputs[Union All Output 1].Columns[USERNAME]" />
-                    <inputColumn
                       refId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ProvinceID]"
                       cachedDataType="wstr"
                       cachedLength="10"
@@ -13762,6 +13755,20 @@ from Regist2005_new.AD_DETAIL</property>
                       cachedName="OriginalStaffProvinceID"
                       externalMetadataColumnId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrginalStaffProvince]"
                       lineageId="Package\GD_Employee\Union All.Outputs[Union All Output 1].Columns[OriginalStaffProvinceID]" />
+                    <inputColumn
+                      refId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[STAFF_SEAT_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="STAFF_SEAT_ID"
+                      externalMetadataColumnId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SeatID]"
+                      lineageId="Package\GD_Employee\Union All.Outputs[Union All Output 1].Columns[STAFF_SEAT_ID]" />
+                    <inputColumn
+                      refId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[USERNAME]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="USERNAME"
+                      externalMetadataColumnId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PSUPassport]"
+                      lineageId="Package\GD_Employee\Union All.Outputs[Union All Output 1].Columns[USERNAME]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -13846,11 +13853,6 @@ from Regist2005_new.AD_DETAIL</property>
                       length="1"
                       name="D_ReligionID" />
                     <externalMetadataColumn
-                      refId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeePassport]"
-                      dataType="wstr"
-                      length="50"
-                      name="EmployeePassport" />
-                    <externalMetadataColumn
                       refId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StaffTypeNameTH]"
                       dataType="wstr"
                       length="100"
@@ -13904,6 +13906,16 @@ from Regist2005_new.AD_DETAIL</property>
                       dataType="wstr"
                       length="10"
                       name="OrginalStaffProvince" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SeatID]"
+                      dataType="wstr"
+                      length="4"
+                      name="SeatID" />
+                    <externalMetadataColumn
+                      refId="Package\GD_Employee\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PSUPassport]"
+                      dataType="wstr"
+                      length="50"
+                      name="PSUPassport" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -14578,56 +14590,56 @@ from Regist2005_new.AD_DETAIL</property>
               </outputs>
             </component>
             <component
-              refId="Package\GD_Employee\Remove Staff without Name"
+              refId="Package\GD_Employee\Remove Staff without Name TH"
               componentClassID="Microsoft.ConditionalSplit"
               contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
-              name="Remove Staff without Name"
+              name="Remove Staff without Name TH"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\GD_Employee\Remove Staff without Name.Inputs[Conditional Split Input]"
+                  refId="Package\GD_Employee\Remove Staff without Name TH.Inputs[Conditional Split Input]"
                   description="Input to the Conditional Split Transformation"
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\GD_Employee\Remove Staff without Name.Inputs[Conditional Split Input].Columns[STAFF_NAME_THAI]"
+                      refId="Package\GD_Employee\Remove Staff without Name TH.Inputs[Conditional Split Input].Columns[STAFF_NAME_THAI]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="STAFF_NAME_THAI"
                       lineageId="Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output].Columns[STAFF_NAME_THAI]" />
                     <inputColumn
-                      refId="Package\GD_Employee\Remove Staff without Name.Inputs[Conditional Split Input].Columns[STAFF_NAME_ENG]"
+                      refId="Package\GD_Employee\Remove Staff without Name TH.Inputs[Conditional Split Input].Columns[STAFF_SNAME_THAI]"
                       cachedDataType="wstr"
-                      cachedLength="45"
-                      cachedName="STAFF_NAME_ENG"
-                      lineageId="Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output].Columns[STAFF_NAME_ENG]" />
+                      cachedLength="40"
+                      cachedName="STAFF_SNAME_THAI"
+                      lineageId="Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output].Columns[STAFF_SNAME_THAI]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\GD_Employee\Remove Staff without Name.Outputs[Staff without Name]"
+                  refId="Package\GD_Employee\Remove Staff without Name TH.Outputs[Staff without NameTH or LastNameTH]"
                   description="Output 1 of the Conditional Split Transformation"
                   errorOrTruncationOperation="Computation"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
-                  name="Staff without Name"
-                  synchronousInputId="Package\GD_Employee\Remove Staff without Name.Inputs[Conditional Split Input]"
+                  name="Staff without NameTH or LastNameTH"
+                  synchronousInputId="Package\GD_Employee\Remove Staff without Name TH.Inputs[Conditional Split Input]"
                   truncationRowDisposition="FailComponent">
                   <properties>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">[ISNULL](#{Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output].Columns[STAFF_NAME_THAI]}) &amp;&amp; [ISNULL](#{Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output].Columns[STAFF_NAME_ENG]})</property>
+                      name="Expression">[ISNULL](#{Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output].Columns[STAFF_NAME_THAI]}) || [ISNULL](#{Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output].Columns[STAFF_SNAME_THAI]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL(STAFF_NAME_THAI) &amp;&amp; ISNULL(STAFF_NAME_ENG)</property>
+                      name="FriendlyExpression">ISNULL(STAFF_NAME_THAI) || ISNULL(STAFF_SNAME_THAI)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -14636,11 +14648,11 @@ from Regist2005_new.AD_DETAIL</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\GD_Employee\Remove Staff without Name.Outputs[Conditional Split Default Output]"
+                  refId="Package\GD_Employee\Remove Staff without Name TH.Outputs[Conditional Split Default Output]"
                   description="Default Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   name="Conditional Split Default Output"
-                  synchronousInputId="Package\GD_Employee\Remove Staff without Name.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\GD_Employee\Remove Staff without Name TH.Inputs[Conditional Split Input]">
                   <properties>
                     <property
                       dataType="System.Boolean"
@@ -14649,23 +14661,23 @@ from Regist2005_new.AD_DETAIL</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\GD_Employee\Remove Staff without Name.Outputs[Conditional Split Error Output]"
+                  refId="Package\GD_Employee\Remove Staff without Name TH.Outputs[Conditional Split Error Output]"
                   description="Error Output of the Conditional Split Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Conditional Split Error Output"
-                  synchronousInputId="Package\GD_Employee\Remove Staff without Name.Inputs[Conditional Split Input]">
+                  synchronousInputId="Package\GD_Employee\Remove Staff without Name TH.Inputs[Conditional Split Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\GD_Employee\Remove Staff without Name.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      refId="Package\GD_Employee\Remove Staff without Name TH.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\GD_Employee\Remove Staff without Name.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      lineageId="Package\GD_Employee\Remove Staff without Name TH.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\GD_Employee\Remove Staff without Name.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      refId="Package\GD_Employee\Remove Staff without Name TH.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\GD_Employee\Remove Staff without Name.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\GD_Employee\Remove Staff without Name TH.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -29814,6 +29826,32 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   refId="Package\GD_Employee\Transform PSU Passport.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\GD_Employee\Transform PSU Passport.Inputs[Derived Column Input].Columns[USERNAME]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="USERNAME"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\GD_Employee\Merge Join Right.Outputs[Merge Join Output].Columns[USERNAME]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\GD_Employee\Merge Join Right.Outputs[Merge Join Output].Columns[USERNAME]}) ? "" : #{Package\GD_Employee\Merge Join Right.Outputs[Merge Join Output].Columns[USERNAME]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(USERNAME) ? "" : USERNAME</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -33911,7 +33949,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               refId="Package\GD_Employee.Paths[Conditional Split Default Output]"
               endId="Package\GD_Employee\Transform Staff Name.Inputs[Derived Column Input]"
               name="Conditional Split Default Output"
-              startId="Package\GD_Employee\Remove Staff without Name.Outputs[Conditional Split Default Output]" />
+              startId="Package\GD_Employee\Remove Staff without Name TH.Outputs[Conditional Split Default Output]" />
             <path
               refId="Package\GD_Employee.Paths[Conditional Split Default Output1]"
               endId="Package\GD_Employee\Data Conversion.Inputs[Data Conversion Input]"
@@ -33924,87 +33962,87 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Employee\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\GD_Employee.Paths[Derived Column Output10]"
-              endId="Package\GD_Employee\Sort P_Staff_ReligionID.Inputs[Sort Input]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform Gender.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output9]"
-              endId="Package\GD_Employee\Transform IsDeparted.Inputs[Derived Column Input]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform Position.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output8]"
-              endId="Package\GD_Employee\Sort P_Staff_SexID.Inputs[Sort Input]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform PSU Passport.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output7]"
-              endId="Package\GD_Employee\Transform all Title columns.Inputs[Derived Column Input]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform Staff Name.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output6]"
-              endId="Package\GD_Employee\Transform Position.Inputs[Derived Column Input]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform Staff Type.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output4]"
-              endId="Package\GD_Employee\Transform Original Staff Province and Country to unstandard DPStaffProvince.Inputs[Derived Column Input]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform Null value of Original ProvinceID and CountryID.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output3]"
-              endId="Package\GD_Employee\Merge Join Right.Inputs[Merge Join Left Input]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform IsDeparted.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output2]"
-              endId="Package\GD_Employee\Transform incorrect Prov_Name_TH.Inputs[Input 0]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform Original Staff Province and Country to unstandard DPStaffProvince.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output1]"
-              endId="Package\GD_Employee\Transform Null value of Original ProvinceID and CountryID.Inputs[Derived Column Input]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform Religion.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output]"
-              endId="Package\GD_Employee\Union All.Inputs[Union All Input 2]"
-              name="Derived Column Output"
-              startId="Package\GD_Employee\Transform Unmatched GD_ProvinceID.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Derived Column Output5]"
               endId="Package\GD_Employee\Transform Staff Type.Inputs[Derived Column Input]"
               name="Derived Column Output"
               startId="Package\GD_Employee\Transform all Title columns.Outputs[Derived Column Output]" />
             <path
+              refId="Package\GD_Employee.Paths[Derived Column Output9]"
+              endId="Package\GD_Employee\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform Unmatched GD_ProvinceID.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output8]"
+              endId="Package\GD_Employee\Transform Null value of Original ProvinceID and CountryID.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform Religion.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output7]"
+              endId="Package\GD_Employee\Transform incorrect Prov_Name_TH.Inputs[Input 0]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform Original Staff Province and Country to unstandard DPStaffProvince.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output6]"
+              endId="Package\GD_Employee\Merge Join Right.Inputs[Merge Join Left Input]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform IsDeparted.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output4]"
+              endId="Package\GD_Employee\Transform Position.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform Staff Type.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output3]"
+              endId="Package\GD_Employee\Transform all Title columns.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform Staff Name.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output2]"
+              endId="Package\GD_Employee\Sort P_Staff_SexID.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform PSU Passport.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output1]"
+              endId="Package\GD_Employee\Transform IsDeparted.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform Position.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output]"
+              endId="Package\GD_Employee\Sort P_Staff_ReligionID.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform Gender.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Derived Column Output5]"
+              endId="Package\GD_Employee\Transform Original Staff Province and Country to unstandard DPStaffProvince.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\GD_Employee\Transform Null value of Original ProvinceID and CountryID.Outputs[Derived Column Output]" />
+            <path
               refId="Package\GD_Employee.Paths[Merge Join Output4]"
-              endId="Package\GD_Employee\Has GD ProvinceID.Inputs[Conditional Split Input]"
-              name="Merge Join Output"
-              startId="Package\GD_Employee\Merge Join with GD_Province.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Merge Join Output2]"
-              endId="Package\GD_Employee\Transform Religion.Inputs[Derived Column Input]"
-              name="Merge Join Output"
-              startId="Package\GD_Employee\Merge D_Religion left.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Merge Join Output3]"
-              endId="Package\GD_Employee\Exist Rows and New Row.Inputs[Conditional Split Input]"
-              name="Merge Join Output"
-              startId="Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Merge Join Output]"
-              endId="Package\GD_Employee\Transform Gender.Inputs[Derived Column Input]"
-              name="Merge Join Output"
-              startId="Package\GD_Employee\Merge D_Gender Right.Outputs[Merge Join Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Merge Join Output1]"
               endId="Package\GD_Employee\Transform PSU Passport.Inputs[Derived Column Input]"
               name="Merge Join Output"
               startId="Package\GD_Employee\Merge Join Right.Outputs[Merge Join Output]" />
             <path
+              refId="Package\GD_Employee.Paths[Merge Join Output2]"
+              endId="Package\GD_Employee\Exist Rows and New Row.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\GD_Employee\Merge P_Staff with GD_Employee.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Merge Join Output3]"
+              endId="Package\GD_Employee\Transform Gender.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\GD_Employee\Merge D_Gender Right.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Merge Join Output]"
+              endId="Package\GD_Employee\Has GD ProvinceID.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\GD_Employee\Merge Join with GD_Province.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Merge Join Output1]"
+              endId="Package\GD_Employee\Transform Religion.Inputs[Derived Column Input]"
+              name="Merge Join Output"
+              startId="Package\GD_Employee\Merge D_Religion left.Outputs[Merge Join Output]" />
+            <path
               refId="Package\GD_Employee.Paths[NewRow]"
-              endId="Package\GD_Employee\Remove Staff without Name.Inputs[Conditional Split Input]"
+              endId="Package\GD_Employee\Remove Staff without Name TH.Inputs[Conditional Split Input]"
               name="NewRow"
               startId="Package\GD_Employee\Exist Rows and New Row.Outputs[NewRow]" />
             <path
@@ -34039,44 +34077,44 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\GD_Employee\Transform incorrect Prov_Name_TH.Outputs[Output 0]" />
             <path
               refId="Package\GD_Employee.Paths[Sort Output6]"
-              endId="Package\GD_Employee\Merge Join with GD_Province.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\GD_Employee\Sort by Prov_Name_TH.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Sort Output5]"
-              endId="Package\GD_Employee\Merge Join with GD_Province.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\GD_Employee\Sort by Name Thai.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Sort Output4]"
-              endId="Package\GD_Employee\Merge Join Right.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\GD_Employee\Sort AD_Detail by EmployeeID.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Sort Output]"
-              endId="Package\GD_Employee\Merge D_Gender Right.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\GD_Employee\Sort P_Staff_SexID.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Sort Output2]"
-              endId="Package\GD_Employee\Merge D_Religion left.Inputs[Merge Join Left Input]"
-              name="Sort Output"
-              startId="Package\GD_Employee\Sort P_Staff_ReligionID.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Sort Output1]"
-              endId="Package\GD_Employee\Merge P_Staff with GD_Employee.Inputs[Merge Join Right Input]"
-              name="Sort Output"
-              startId="Package\GD_Employee\Sort GD_Employee by EmployeeID.Outputs[Sort Output]" />
-            <path
-              refId="Package\GD_Employee.Paths[Sort Output7]"
               endId="Package\GD_Employee\Merge P_Staff with GD_Employee.Inputs[Merge Join Left Input]"
               name="Sort Output"
               startId="Package\GD_Employee\Sort P_STAFF by StaffID.Outputs[Sort Output]" />
             <path
-              refId="Package\GD_Employee.Paths[Sort Output3]"
+              refId="Package\GD_Employee.Paths[Sort Output5]"
+              endId="Package\GD_Employee\Merge P_Staff with GD_Employee.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\GD_Employee\Sort GD_Employee by EmployeeID.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Sort Output4]"
+              endId="Package\GD_Employee\Merge D_Religion left.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\GD_Employee\Sort P_Staff_ReligionID.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Sort Output]"
+              endId="Package\GD_Employee\Merge Join with GD_Province.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\GD_Employee\Sort by Prov_Name_TH.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Sort Output2]"
+              endId="Package\GD_Employee\Merge Join Right.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\GD_Employee\Sort AD_Detail by EmployeeID.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Sort Output1]"
+              endId="Package\GD_Employee\Merge Join with GD_Province.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\GD_Employee\Sort by Name Thai.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Sort Output7]"
               endId="Package\GD_Employee\Merge D_Religion left.Inputs[Merge Join Right Input]"
               name="Sort Output"
               startId="Package\GD_Employee\Sort D_Religion.Outputs[Sort Output]" />
+            <path
+              refId="Package\GD_Employee.Paths[Sort Output3]"
+              endId="Package\GD_Employee\Merge D_Gender Right.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\GD_Employee\Sort P_Staff_SexID.Outputs[Sort Output]" />
             <path
               refId="Package\GD_Employee.Paths[Sort Output8]"
               endId="Package\GD_Employee\Merge D_Gender Right.Inputs[Merge Join Right Input]"
@@ -34238,9 +34276,9 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\GD_Employee\Sort P_Staff_ReligionID"
           TopLeft="238.563492063495,1040.8373015873" />
         <NodeLayout
-          Size="211,42"
-          Id="Package\GD_Employee\Remove Staff without Name"
-          TopLeft="611.285714285714,400.571428571429" />
+          Size="228,42"
+          Id="Package\GD_Employee\Remove Staff without Name TH"
+          TopLeft="596.285714285714,405.571428571429" />
         <NodeLayout
           Size="165,42"
           Id="Package\GD_Employee\OLE DB D_Gender"
@@ -34305,7 +34343,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="11.2612943328358,34.0602914084755,132.3305859375,9.7490234375"
+              BoundingBox="11.261294332836,34.0602914084755,132.3305859375,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -34355,6 +34393,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Employee.Paths[Sort Output7]"
+          TopLeft="508.206349206351,1155.49801587302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-80.1428571428571,0"
+              Start="0,0"
+              End="-72.6428571428571,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-72.6428571428571,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Sort Output6]"
           TopLeft="587.142857142857,196.071428571431">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -34388,153 +34448,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Employee.Paths[Sort Output6]"
-          TopLeft="684.5,1567">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-119.916666666667,66.75"
-              Start="0,0"
-              End="-119.916666666667,59.25">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.7568618481244" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,35.7568618481244"
-                    Point2="0,39.7568618481244"
-                    Point3="-4,39.7568618481244" />
-                  <mssgle:LineSegment
-                    End="-115.916666666667,39.7568618481244" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-115.916666666667,39.7568618481244"
-                    Point2="-119.916666666667,39.7568618481244"
-                    Point3="-119.916666666667,43.7568618481244" />
-                  <mssgle:LineSegment
-                    End="-119.916666666667,59.25" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\GD_Employee.Paths[Sort Output5]"
-          TopLeft="349.813492063495,1562.35714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="145.103174603172,71.3928571428601"
-              Start="0,0"
-              End="145.103174603172,63.8928571428601">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.5221866422707" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.5221866422707"
-                    Point2="0,42.5221866422707"
-                    Point3="4,42.5221866422707" />
-                  <mssgle:LineSegment
-                    End="141.103174603172,42.5221866422707" />
-                  <mssgle:CubicBezierSegment
-                    Point1="141.103174603172,42.5221866422707"
-                    Point2="145.103174603172,42.5221866422707"
-                    Point3="145.103174603172,46.5221866422707" />
-                  <mssgle:LineSegment
-                    End="145.103174603172,63.8928571428601" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Sort Output4]"
-          TopLeft="816.285714285714,784.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="195.392857142857,95.2142857142858"
-              Start="0,0"
-              End="195.392857142857,87.7142857142858">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5558539205156" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,52.5558539205156"
-                    Point2="0,56.5558539205156"
-                    Point3="4,56.5558539205156" />
-                  <mssgle:LineSegment
-                    End="191.392857142857,56.5558539205156" />
-                  <mssgle:CubicBezierSegment
-                    Point1="191.392857142857,56.5558539205156"
-                    Point2="195.392857142857,56.5558539205156"
-                    Point3="195.392857142857,60.5558539205156" />
-                  <mssgle:LineSegment
-                    End="195.392857142857,87.7142857142858" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Sort Output3]"
-          TopLeft="508.206349206351,1155.49801587302">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-80.1428571428571,0"
-              Start="0,0"
-              End="-72.6428571428571,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-72.6428571428571,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Sort Output2]"
-          TopLeft="335.563492063494,1082.8373015873">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.8214285714355"
-              Start="0,0"
-              End="0,44.3214285714355">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,44.3214285714355" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Sort Output1]"
           TopLeft="886.087301587301,195.571428571431">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -34568,7 +34482,29 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Employee.Paths[Sort Output]"
+          Id="Package\GD_Employee.Paths[Sort Output4]"
+          TopLeft="335.563492063494,1082.8373015873">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.8214285714355"
+              Start="0,0"
+              End="0,44.3214285714355">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.3214285714355" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Sort Output3]"
           TopLeft="487.5,898.652777777778">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -34581,6 +34517,108 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="-49.3531746031758,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Sort Output2]"
+          TopLeft="816.285714285714,784.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="195.392857142857,95.2142857142858"
+              Start="0,0"
+              End="195.392857142857,87.7142857142858">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5558539205156" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,52.5558539205156"
+                    Point2="0,56.5558539205156"
+                    Point3="4,56.5558539205156" />
+                  <mssgle:LineSegment
+                    End="191.392857142857,56.5558539205156" />
+                  <mssgle:CubicBezierSegment
+                    Point1="191.392857142857,56.5558539205156"
+                    Point2="195.392857142857,56.5558539205156"
+                    Point3="195.392857142857,60.5558539205156" />
+                  <mssgle:LineSegment
+                    End="195.392857142857,87.7142857142858" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Sort Output1]"
+          TopLeft="349.813492063495,1562.35714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="145.103174603172,71.3928571428601"
+              Start="0,0"
+              End="145.103174603172,63.8928571428601">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5221866422707" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.5221866422707"
+                    Point2="0,42.5221866422707"
+                    Point3="4,42.5221866422707" />
+                  <mssgle:LineSegment
+                    End="141.103174603172,42.5221866422707" />
+                  <mssgle:CubicBezierSegment
+                    Point1="141.103174603172,42.5221866422707"
+                    Point2="145.103174603172,42.5221866422707"
+                    Point3="145.103174603172,46.5221866422707" />
+                  <mssgle:LineSegment
+                    End="145.103174603172,63.8928571428601" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Sort Output]"
+          TopLeft="684.5,1567">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-119.916666666667,66.75"
+              Start="0,0"
+              End="-119.916666666667,59.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.7568618481244" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.7568618481244"
+                    Point2="0,39.7568618481244"
+                    Point3="-4,39.7568618481244" />
+                  <mssgle:LineSegment
+                    End="-115.916666666667,39.7568618481244" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-115.916666666667,39.7568618481244"
+                    Point2="-119.916666666667,39.7568618481244"
+                    Point3="-119.916666666667,43.7568618481244" />
+                  <mssgle:LineSegment
+                    End="-119.916666666667,59.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -34723,96 +34761,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Employee.Paths[NewRow]"
-          TopLeft="713.436507936508,359.571428571431">
+          TopLeft="710.186507936508,359.571428571431">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.9999999999976"
+              EndConnector="0,45.999999999998"
               Start="0,0"
-              End="0,33.4999999999976">
+              End="0,38.499999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.4999999999976" />
+                    End="0,38.499999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-19.76404296875,12.0390624999988,39.5280859375,9.421875"
+              BoundingBox="-19.76404296875,14.539062499999,39.5280859375,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Employee.Paths[Merge Join Output4]"
-          TopLeft="529.281746031748,1675.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,57.6071428571399"
-              Start="0,0"
-              End="0,50.1071428571399">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.1071428571399" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Merge Join Output3]"
-          TopLeft="707.837301587302,290.571428571431">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27"
-              Start="0,0"
-              End="0,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Merge Join Output2]"
-          TopLeft="336.077380952384,1176.65873015873">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,49.9206349206315"
-              Start="0,0"
-              End="0,42.4206349206315">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,42.4206349206315" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Merge Join Output1]"
           TopLeft="957.678571428571,901.589285714288">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -34834,7 +34806,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Employee.Paths[Merge Join Output]"
+          Id="Package\GD_Employee.Paths[Merge Join Output3]"
           TopLeft="335.234126984126,918.432539682539">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -34856,117 +34828,73 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\GD_Employee.Paths[Merge Join Output2]"
+          TopLeft="707.837301587302,290.571428571431">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27"
+              Start="0,0"
+              End="0,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Merge Join Output1]"
+          TopLeft="336.077380952384,1176.65873015873">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.9206349206315"
+              Start="0,0"
+              End="0,42.4206349206315">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.4206349206315" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Merge Join Output]"
+          TopLeft="529.281746031748,1675.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57.6071428571399"
+              Start="0,0"
+              End="0,50.1071428571399">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.1071428571399" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\GD_Employee.Paths[Derived Column Output10]"
-          TopLeft="332.942460317462,1001.44444444444">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.3928571428627"
-              Start="0,0"
-              End="0,31.8928571428627">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.8928571428627" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output9]"
-          TopLeft="1061.67857142857,588.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,153.571428571429"
-              Start="0,0"
-              End="0,146.071428571429">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,146.071428571429" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output8]"
-          TopLeft="718.535714285714,901.043650793653">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-62.0357142857139,0"
-              Start="0,0"
-              End="-54.5357142857139,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-54.5357142857139,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output7]"
-          TopLeft="431.376984126984,566.396825396825">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="54.3373015873016,0"
-              Start="0,0"
-              End="46.8373015873016,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="46.8373015873016,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output6]"
-          TopLeft="923.142857142857,567.357142857143">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="53.4285714285713,0"
-              Start="0,0"
-              End="45.9285714285713,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="45.9285714285713,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output5]"
           TopLeft="692.714285714286,567.928571428572">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -34988,95 +34916,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output4]"
-          TopLeft="684.146825396828,1265.10714285714">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,65.7261904761933"
-              Start="0,0"
-              End="0,58.2261904761933">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,58.2261904761933" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output3]"
-          TopLeft="1062.48214285714,784.071428571429">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,95.8928571428571"
-              Start="0,0"
-              End="0,88.3928571428571">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,88.3928571428571" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output2]"
-          TopLeft="679.688492063495,1372.83333333333">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51.1904761904734"
-              Start="0,0"
-              End="0,43.6904761904734">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.6904761904734" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output1]"
-          TopLeft="418.091269841274,1245.84325396825">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="91.722222222221,0"
-              Start="0,0"
-              End="84.222222222221,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="84.222222222221,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\GD_Employee.Paths[Derived Column Output]"
+          Id="Package\GD_Employee.Paths[Derived Column Output9]"
           TopLeft="710.5,1889">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -35101,6 +34941,204 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     Point3="-161.166666666667,31.2398042414356" />
                   <mssgle:LineSegment
                     End="-161.166666666667,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output8]"
+          TopLeft="418.091269841274,1245.84325396825">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.722222222221,0"
+              Start="0,0"
+              End="84.222222222221,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="84.222222222221,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output7]"
+          TopLeft="679.688492063495,1372.83333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.1904761904734"
+              Start="0,0"
+              End="0,43.6904761904734">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.6904761904734" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output6]"
+          TopLeft="1062.48214285714,784.071428571429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,95.8928571428571"
+              Start="0,0"
+              End="0,88.3928571428571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.3928571428571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output5]"
+          TopLeft="684.146825396828,1265.10714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.7261904761933"
+              Start="0,0"
+              End="0,58.2261904761933">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.2261904761933" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output4]"
+          TopLeft="923.142857142857,567.357142857143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53.4285714285713,0"
+              Start="0,0"
+              End="45.9285714285713,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.9285714285713,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output3]"
+          TopLeft="431.376984126984,566.396825396825">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="54.3373015873016,0"
+              Start="0,0"
+              End="46.8373015873016,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="46.8373015873016,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output2]"
+          TopLeft="718.535714285714,901.043650793653">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-62.0357142857139,0"
+              Start="0,0"
+              End="-54.5357142857139,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-54.5357142857139,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output1]"
+          TopLeft="1061.67857142857,588.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,153.571428571429"
+              Start="0,0"
+              End="0,146.071428571429">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,146.071428571429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\GD_Employee.Paths[Derived Column Output]"
+          TopLeft="332.942460317462,1001.44444444444">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.3928571428627"
+              Start="0,0"
+              End="0,31.8928571428627">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.8928571428627" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -35175,43 +35213,43 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-138.197239583333,32.9882766705745,141.2278125,11.658203125"
+              BoundingBox="-138.197239583333,32.9882766705744,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\GD_Employee.Paths[Conditional Split Default Output]"
-          TopLeft="716.785714285714,442.571428571429">
+          TopLeft="710.285714285714,447.571428571429">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-376.90873015873,100.579365079364"
+              EndConnector="-370.40873015873,95.579365079364"
               Start="0,0"
-              End="-376.90873015873,93.0793650793636">
+              End="-370.40873015873,88.079365079364">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,46.2896825396818" />
+                    End="0,43.789682539682" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,46.2896825396818"
-                    Point2="0,50.2896825396818"
-                    Point3="-4,50.2896825396818" />
+                    Point1="0,43.789682539682"
+                    Point2="0,47.789682539682"
+                    Point3="-4,47.789682539682" />
                   <mssgle:LineSegment
-                    End="-372.90873015873,50.2896825396818" />
+                    End="-366.40873015873,47.789682539682" />
                   <mssgle:CubicBezierSegment
-                    Point1="-372.90873015873,50.2896825396818"
-                    Point2="-376.90873015873,50.2896825396818"
-                    Point3="-376.90873015873,54.2896825396818" />
+                    Point1="-366.40873015873,47.789682539682"
+                    Point2="-370.40873015873,47.789682539682"
+                    Point3="-370.40873015873,51.789682539682" />
                   <mssgle:LineSegment
-                    End="-376.90873015873,93.0793650793636" />
+                    End="-370.40873015873,88.079365079364" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-259.068271329365,55.2896825396818,141.2278125,11.658203125"
+              BoundingBox="-255.818271329365,52.789682539682,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
